@@ -77,7 +77,7 @@ export default function MapleLeafHero() {
                   {/* <a href="#" className="block text-gray-700 hover:text-blue-700 transition font-medium py-2 pl-4">
                     Our Brands
                   </a> */}
-                  <a href="#" className="block text-gray-700 hover:text-blue-700 transition font-medium py-2 pl-4">
+                  <a href="#" onClick={() => navigate("/apply-now")} className="block text-gray-700 hover:text-blue-700 transition font-medium py-2 pl-4">
                     Apply Now
                   </a>
                   <a href="#" className="block text-red-600 hover:text-red-700 transition font-medium py-2 pl-4">
