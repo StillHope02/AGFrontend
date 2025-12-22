@@ -41,9 +41,9 @@ export default function MapleLeafHero() {
                   <a href="#about-us" className="text-gray-700 hover:text-blue-700 transition font-medium">
                     About Us
                   </a>
-                  <a href="#" className="text-gray-700 hover:text-blue-700 transition font-medium">
+                  {/* <a href="#" className="text-gray-700 hover:text-blue-700 transition font-medium">
                     Our Brands
-                  </a>
+                  </a> */}
                   <button
                     onClick={() => navigate("/apply-now")}
                     className="text-gray-700 hover:text-blue-700 transition font-medium"
@@ -71,12 +71,12 @@ export default function MapleLeafHero() {
                   <a href="#" className="block text-blue-700 font-semibold py-2 border-l-4 border-blue-700 pl-4">
                     Home
                   </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-700 transition font-medium py-2 pl-4">
+                  <a href="#about-us" className="block text-gray-700 hover:text-blue-700 transition font-medium py-2 pl-4">
                     About Us
                   </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-700 transition font-medium py-2 pl-4">
+                  {/* <a href="#" className="block text-gray-700 hover:text-blue-700 transition font-medium py-2 pl-4">
                     Our Brands
-                  </a>
+                  </a> */}
                   <a href="#" className="block text-gray-700 hover:text-blue-700 transition font-medium py-2 pl-4">
                     Apply Now
                   </a>

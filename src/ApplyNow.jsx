@@ -312,9 +312,9 @@ export default function ApplyNow() {
               >
                 About Us
               </button>
-              <a href="#" className="text-gray-700 hover:text-blue-700 transition font-medium">
+              {/* <a href="#" className="text-gray-700 hover:text-blue-700 transition font-medium">
                 Our Brands
-              </a>
+              </a> */}
               <button
                 className="text-blue-700 font-semibold border-b-2 border-blue-700 pb-1"
               >
@@ -358,13 +358,13 @@ export default function ApplyNow() {
               >
                 About Us
               </button>
-              <a
+              {/* <a
                 href="#"
                 className="block text-gray-700 hover:text-blue-700 transition font-medium py-2 pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Our Brands
-              </a>
+              </a> */}
               <div className="block text-blue-700 font-semibold py-2 border-l-4 border-blue-700 pl-4">
                 Apply Now
               </div>
