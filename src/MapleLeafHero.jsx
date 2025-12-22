@@ -194,6 +194,7 @@ import logoImage from './assets/Logo.webp';
 import Image01 from './assets/AboutFood01.jpg';
 import MissionValuesSection from './MissionValuesSection';
 import { useNavigate } from "react-router-dom";
+import {CheckCircle, Users, Shield, TrendingUp, HeadphonesIcon, Cpu} from 'lucide-react';
 import JobsSection from './JobsSection';
 
 export default function MapleLeafHero() {
@@ -328,7 +329,214 @@ export default function MapleLeafHero() {
 
       {/* Mission & Values Section */}
       <MissionValuesSection />
-      <JobsSection/>
+      <JobsSection />
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="bg-gradient-to-b from-green-50 to-white py-16 sm:py-20 lg:py-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-green-700 text-sm sm:text-base font-medium mb-3 tracking-wide uppercase"
+            >
+              Why International Professionals Choose Us
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-900"
+            >
+              The Right Workplace for Global Talent
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="w-20 h-1 bg-yellow-500 mx-auto mb-6 transform origin-center"
+            ></motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto"
+            >
+              We help job seekers from around the world build a better life in Canada. Our LMA-approved roles offer stability, growth, and a chance to contribute to Canada's sustainable food future.
+            </motion.p>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+            {/* Benefit Card 1: Trusted Canadian Company */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
+            >
+              <div className="flex items-start mb-4">
+                <div className="bg-green-100 p-3 rounded-lg mr-4">
+                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Trusted Canadian Company</h3>
+              </div>
+              <p className="text-gray-700 text-base sm:text-lg">
+                Safe, modern, and certified food production environment with industry-leading standards.
+              </p>
+            </motion.div>
+
+            {/* Benefit Card 2: Stable Jobs with Growth */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
+            >
+              <div className="flex items-start mb-4">
+                <div className="bg-green-100 p-3 rounded-lg mr-4">
+                  <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Stable Jobs with Growth</h3>
+              </div>
+              <p className="text-gray-700 text-base sm:text-lg">
+                Multiple positions with long-term employment, comprehensive training, and career advancement opportunities.
+              </p>
+            </motion.div>
+
+            {/* Benefit Card 3: Expert Hiring Support */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
+            >
+              <div className="flex items-start mb-4">
+                <div className="bg-green-100 p-3 rounded-lg mr-4">
+                  <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Expert Hiring Support</h3>
+              </div>
+              <p className="text-gray-700 text-base sm:text-lg">
+                End-to-end guidance with visa processing, document preparation, and personalized job matching.
+              </p>
+            </motion.div>
+
+            {/* Benefit Card 4: Tech-Enabled Production */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
+            >
+              <div className="flex items-start mb-4">
+                <div className="bg-green-100 p-3 rounded-lg mr-4">
+                  <Cpu className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Tech-Enabled Production</h3>
+              </div>
+              <p className="text-gray-700 text-base sm:text-lg">
+                Work with the latest machines, automated food systems, and cutting-edge production technology.
+              </p>
+            </motion.div>
+
+            {/* Benefit Card 5: Multicultural Teams */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
+            >
+              <div className="flex items-start mb-4">
+                <div className="bg-green-100 p-3 rounded-lg mr-4">
+                  <Users className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Multicultural Teams</h3>
+              </div>
+              <p className="text-gray-700 text-base sm:text-lg">
+                Join a diverse workforce with global talent from over 20 countries. Experience true workplace diversity.
+              </p>
+            </motion.div>
+
+            {/* Benefit Card 6: Ongoing Support */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
+            >
+              <div className="flex items-start mb-4">
+                <div className="bg-green-100 p-3 rounded-lg mr-4">
+                  <HeadphonesIcon className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Ongoing Support</h3>
+              </div>
+              <p className="text-gray-700 text-base sm:text-lg">
+                We help you settle in, even after you start work! Housing assistance, community integration, and continuous support.
+              </p>
+            </motion.div>
+
+          </div>
+
+          {/* CTA Banner at Bottom */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8 }}
+            className="mt-12 sm:mt-16 bg-gradient-to-r from-green-700 to-green-800 rounded-2xl shadow-xl overflow-hidden"
+          >
+            <div className="p-8 sm:p-10 lg:p-12 text-center">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+                Ready to Start Your Canadian Journey?
+              </h3>
+              <p className="text-green-100 text-lg sm:text-xl mb-8 max-w-3xl mx-auto">
+                Join hundreds of international professionals who've built successful careers with AG Foods
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate("/apply-now")}
+                  className="bg-white text-green-700 hover:bg-green-50 font-bold py-3 px-8 rounded-full transition text-base sm:text-lg"
+                >
+                  Apply Now
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-3 px-8 rounded-full transition text-base sm:text-lg"
+                >
+                  Download Brochure
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
 
       {/* WhatsApp Button */}
       <motion.a
