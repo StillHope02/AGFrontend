@@ -187,15 +187,15 @@
 // }
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+// import { FileText, Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import backgroundImage from './assets/AGBackground.jpg';
 import logoImage from './assets/Logo.webp';
 import Image01 from './assets/AboutFood01.jpg';
 import MissionValuesSection from './MissionValuesSection';
 import { useNavigate } from "react-router-dom";
-import {CheckCircle, Users, Shield, TrendingUp, HeadphonesIcon, Cpu} from 'lucide-react';
 import JobsSection from './JobsSection';
+import { Menu, X, CheckCircle, Users, Shield, TrendingUp, HeadphonesIcon, Cpu, FileText, Video, Plane, Home } from 'lucide-react';
 
 export default function MapleLeafHero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -337,202 +337,267 @@ export default function MapleLeafHero() {
         transition={{ duration: 0.8 }}
         className="bg-gradient-to-b from-green-50 to-white py-16 sm:py-20 lg:py-24"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ... Why Choose Us content ... */}
+      </motion.div>
+
+      {/* Simple Steps Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative py-16 sm:py-20 lg:py-24 overflow-hidden"
+      >
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 via-green-800/85 to-green-900/90"></div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.15
+          }}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-green-700 text-sm sm:text-base font-medium mb-3 tracking-wide uppercase"
-            >
-              Why International Professionals Choose Us
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-900"
-            >
-              The Right Workplace for Global Talent
-            </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Simple Steps To Start Your Job In Canada
+            </h2>
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="w-20 h-1 bg-yellow-500 mx-auto mb-6 transform origin-center"
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="w-24 h-1 bg-yellow-400 mx-auto mb-6 transform origin-center"
             ></motion.div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+            <p className="text-green-100 text-lg sm:text-xl max-w-3xl mx-auto">
+              We make it easy for international applicants to join our team. From applying online to arriving in Canada, we guide you every step of the way.
+            </p>
+          </motion.div>
+
+          {/* Steps Timeline */}
+          <div className="relative">
+            {/* Timeline Connector Line */}
+            <motion.div
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto"
+              transition={{ duration: 1.5 }}
+              className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-green-500 via-yellow-400 to-green-500 transform -translate-x-1/2 z-0"
+              style={{ transformOrigin: 'top' }}
+            ></motion.div>
+
+            {/* Step 1 */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col lg:flex-row items-center mb-16 lg:mb-20 relative"
             >
-              We help job seekers from around the world build a better life in Canada. Our LMA-approved roles offer stability, growth, and a chance to contribute to Canada's sustainable food future.
-            </motion.p>
+              <div className="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0 order-2 lg:order-1">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 shadow-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-green-600 text-white rounded-full p-2 mr-4">
+                      <FileText className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                      Step 1: Online Application & Profile Review
+                    </h3>
+                  </div>
+                  <p className="text-green-100 text-base sm:text-lg leading-relaxed">
+                    Submit your CV and job preferences. We'll evaluate your profile for the best-suited roles. Work permit eligibility is checked at this stage.
+                  </p>
+                  <div className="mt-6">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => navigate("/apply-now")}
+                      className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center"
+                    >
+                      <FileText className="w-5 h-5 mr-2" />
+                      Start Your Application
+                    </motion.button>
+                  </div>
+                </div>
+              </div>
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, type: "spring" }}
+                className="order-1 lg:order-2 lg:w-1/2 flex justify-center lg:justify-start relative z-10"
+              >
+                <div className="relative">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center shadow-2xl border-4 border-white">
+                    <span className="text-white text-4xl sm:text-5xl font-bold">01</span>
+                  </div>
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    className="absolute inset-0 bg-green-600 rounded-full opacity-30"
+                  ></motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Step 2 */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="flex flex-col lg:flex-row items-center mb-16 lg:mb-20 relative"
+            >
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, type: "spring" }}
+                className="lg:w-1/2 flex justify-center lg:justify-end mb-8 lg:mb-0 relative z-10"
+              >
+                <div className="relative">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center shadow-2xl border-4 border-white">
+                    <span className="text-white text-4xl sm:text-5xl font-bold">02</span>
+                  </div>
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
+                    className="absolute inset-0 bg-yellow-500 rounded-full opacity-30"
+                  ></motion.div>
+                </div>
+              </motion.div>
+              <div className="lg:w-1/2 lg:pl-12 order-2">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 shadow-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-yellow-500 text-white rounded-full p-2 mr-4">
+                      <Video className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                      Step 2: Interview & Job Confirmation
+                    </h3>
+                  </div>
+                  <p className="text-green-100 text-base sm:text-lg leading-relaxed">
+                    Shortlisted candidates are invited for a video interview. Once approved, you'll receive your official job offer and LMIA documents.
+                  </p>
+                  <div className="mt-6">
+                    <div className="flex items-center text-yellow-300">
+                      <CheckCircle className="w-5 h-5 mr-2" />
+                      <span className="font-medium">Average processing time: 2-3 weeks</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Step 3 */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col lg:flex-row items-center relative"
+            >
+              <div className="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0 order-2 lg:order-1">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 shadow-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-green-600 text-white rounded-full p-2 mr-4">
+                      <Plane className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                      Step 3: Visa Processing & Onboarding
+                    </h3>
+                  </div>
+                  <p className="text-green-100 text-base sm:text-lg leading-relaxed">
+                    We assist with visa paperwork, travel guidance, and your smooth arrival in Canada. Our onboarding team helps you settle into your new job and life.
+                  </p>
+                  <div className="mt-6 grid grid-cols-2 gap-4">
+                    <div className="flex items-center text-green-100">
+                      <CheckCircle className="w-5 h-5 mr-2 text-green-300" />
+                      <span>Visa Assistance</span>
+                    </div>
+                    <div className="flex items-center text-green-100">
+                      <CheckCircle className="w-5 h-5 mr-2 text-green-300" />
+                      <span>Travel Guidance</span>
+                    </div>
+                    <div className="flex items-center text-green-100">
+                      <CheckCircle className="w-5 h-5 mr-2 text-green-300" />
+                      <span>Airport Pickup</span>
+                    </div>
+                    <div className="flex items-center text-green-100">
+                      <CheckCircle className="w-5 h-5 mr-2 text-green-300" />
+                      <span>Housing Support</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, type: "spring" }}
+                className="order-1 lg:order-2 lg:w-1/2 flex justify-center lg:justify-start relative z-10"
+              >
+                <div className="relative">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-green-700 to-green-900 rounded-full flex items-center justify-center shadow-2xl border-4 border-white">
+                    <span className="text-white text-4xl sm:text-5xl font-bold">03</span>
+                  </div>
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ repeat: Infinity, duration: 2, delay: 1 }}
+                    className="absolute inset-0 bg-green-700 rounded-full opacity-30"
+                  ></motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
 
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-
-            {/* Benefit Card 1: Trusted Canadian Company */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Trusted Canadian Company</h3>
-              </div>
-              <p className="text-gray-700 text-base sm:text-lg">
-                Safe, modern, and certified food production environment with industry-leading standards.
-              </p>
-            </motion.div>
-
-            {/* Benefit Card 2: Stable Jobs with Growth */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Stable Jobs with Growth</h3>
-              </div>
-              <p className="text-gray-700 text-base sm:text-lg">
-                Multiple positions with long-term employment, comprehensive training, and career advancement opportunities.
-              </p>
-            </motion.div>
-
-            {/* Benefit Card 3: Expert Hiring Support */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Expert Hiring Support</h3>
-              </div>
-              <p className="text-gray-700 text-base sm:text-lg">
-                End-to-end guidance with visa processing, document preparation, and personalized job matching.
-              </p>
-            </motion.div>
-
-            {/* Benefit Card 4: Tech-Enabled Production */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <Cpu className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Tech-Enabled Production</h3>
-              </div>
-              <p className="text-gray-700 text-base sm:text-lg">
-                Work with the latest machines, automated food systems, and cutting-edge production technology.
-              </p>
-            </motion.div>
-
-            {/* Benefit Card 5: Multicultural Teams */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <Users className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Multicultural Teams</h3>
-              </div>
-              <p className="text-gray-700 text-base sm:text-lg">
-                Join a diverse workforce with global talent from over 20 countries. Experience true workplace diversity.
-              </p>
-            </motion.div>
-
-            {/* Benefit Card 6: Ongoing Support */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.7 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <HeadphonesIcon className="w-6 h-6 sm:w-8 sm:h-8 text-green-700" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Ongoing Support</h3>
-              </div>
-              <p className="text-gray-700 text-base sm:text-lg">
-                We help you settle in, even after you start work! Housing assistance, community integration, and continuous support.
-              </p>
-            </motion.div>
-
-          </div>
-
-          {/* CTA Banner at Bottom */}
+          {/* CTA Section */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.8 }}
-            className="mt-12 sm:mt-16 bg-gradient-to-r from-green-700 to-green-800 rounded-2xl shadow-xl overflow-hidden"
+            transition={{ delay: 0.5 }}
+            className="mt-16 sm:mt-20 text-center"
           >
-            <div className="p-8 sm:p-10 lg:p-12 text-center">
+            <div className="bg-gradient-to-r from-green-800/80 to-green-900/80 backdrop-blur-sm rounded-2xl p-8 sm:p-10 border border-white/20 shadow-2xl">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-                Ready to Start Your Canadian Journey?
+                Your Canadian Dream Starts Here
               </h3>
               <p className="text-green-100 text-lg sm:text-xl mb-8 max-w-3xl mx-auto">
-                Join hundreds of international professionals who've built successful careers with AG Foods
+                Join our family of international professionals. We handle the paperwork, you focus on your new career.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => navigate("/apply-now")}
-                  className="bg-white text-green-700 hover:bg-green-50 font-bold py-3 px-8 rounded-full transition text-base sm:text-lg"
+                  className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition text-base sm:text-lg inline-flex items-center justify-center"
                 >
-                  Apply Now
+                  <FileText className="w-5 h-5 mr-2" />
+                  Begin Your Application
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-3 px-8 rounded-full transition text-base sm:text-lg"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-3 px-8 rounded-full transition text-base sm:text-lg inline-flex items-center justify-center"
                 >
-                  Download Brochure
+                  <Video className="w-5 h-5 mr-2" />
+                  Schedule a Consultation
                 </motion.button>
               </div>
+              <p className="text-green-200 mt-6 text-sm">
+                <CheckCircle className="w-4 h-4 inline mr-1" />
+                Average visa processing time: 4-6 weeks with our expedited support
+              </p>
             </div>
           </motion.div>
         </div>
