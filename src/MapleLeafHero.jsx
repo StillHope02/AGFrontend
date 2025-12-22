@@ -38,7 +38,7 @@ export default function MapleLeafHero() {
                   <a href="#" className="text-blue-700 font-semibold border-b-2 border-blue-700 pb-1">
                     Home
                   </a>
-                  <a href="#" className="text-gray-700 hover:text-blue-700 transition font-medium">
+                  <a href="#about-us" className="text-gray-700 hover:text-blue-700 transition font-medium">
                     About Us
                   </a>
                   <a href="#" className="text-gray-700 hover:text-blue-700 transition font-medium">
@@ -123,7 +123,7 @@ export default function MapleLeafHero() {
       </div>
 
       {/* About Section */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div id="about-us" className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
