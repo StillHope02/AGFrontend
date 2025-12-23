@@ -110,7 +110,7 @@ export default function MapleLeafHero() {
             </h2>
             <p className="text-sm sm:text-base text-green-100">We Provide Free Visa | Ticket | Food</p>
           </div>
-          <motion.button whileHover={{ scale: 1.05 }} className="bg-transparent hover:bg-white hover:text-green-700 border-2 border-white text-white font-bold py-3 px-8 rounded-full transition whitespace-nowrap">
+          <motion.button  onClick={() => navigate("/apply-now")} whileHover={{ scale: 1.05 }} className="bg-transparent hover:bg-white hover:text-green-700 border-2 border-white text-white font-bold py-3 px-8 rounded-full transition whitespace-nowrap">
             Apply Now
           </motion.button>
         </div>
