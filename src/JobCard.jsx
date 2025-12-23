@@ -59,6 +59,16 @@ export default function EcoFoodsJobs() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate();
 
+    const goToAboutUs = () => {
+        navigate('/'); // go to home page
+        setTimeout(() => {
+            const el = document.getElementById('about-us');
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100); // slight delay to ensure DOM renders
+    };
+
     const jobs = [
         {
             title: "Heavy Vehicle Driver",
@@ -129,7 +139,7 @@ export default function EcoFoodsJobs() {
                         {/* Desktop Menu */}
                         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
                             <a href="#" onClick={() => navigate("/")} className="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
-                            <a href="#about-us" className="text-gray-700 hover:text-green-600 transition-colors font-medium">About Us</a>
+                            <a href="#about-us" onClick={goToAboutUs} className="text-gray-700 hover:text-green-600 transition-colors font-medium">About Us</a>
                             <a href="#jobs" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">AG Foods Canada Jobs</a>
                             <a href="#apply" className="text-gray-700 hover:text-green-600 transition-colors font-medium">Apply Now</a>
                             <a href="#status" className="text-red-600 hover:text-red-700 transition-colors font-medium">Check Status</a>
@@ -163,7 +173,7 @@ export default function EcoFoodsJobs() {
                         >
                             <div className="flex flex-col gap-1 pt-4">
                                 <a href="#" className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">Home</a>
-                                <a href="#about-us" className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">About Us</a>
+                                <a href="#about-us" onClick={goToAboutUs} className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">About Us</a>
                                 <a href="#jobs" className="text-green-600 bg-green-50 font-semibold py-3 px-4 rounded-lg">AG Foods Canada Jobs</a>
                                 <a href="#apply" className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">Apply Now</a>
                                 <a href="#status" className="text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors font-medium py-3 px-4 rounded-lg">Check Status</a>
