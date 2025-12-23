@@ -172,7 +172,7 @@ export default function EcoFoodsJobs() {
                             className="lg:hidden pb-4 border-t border-gray-200 mt-2"
                         >
                             <div className="flex flex-col gap-1 pt-4">
-                                <a href="#" className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">Home</a>
+                                <a href="#" onClick={() => navigate("/")} className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">Home</a>
                                 <a href="#about-us" onClick={goToAboutUs} className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">About Us</a>
                                 {/* <a href="#jobs" className="text-green-600 bg-green-50 font-semibold py-3 px-4 rounded-lg">AG Foods Canada Jobs</a> */}
                                 <a href="#apply" onClick={() => navigate("/apply-now")} className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">Apply Now</a>
