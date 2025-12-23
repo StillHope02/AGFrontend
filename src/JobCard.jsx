@@ -140,8 +140,8 @@ export default function EcoFoodsJobs() {
                         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
                             <a href="#" onClick={() => navigate("/")} className="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
                             <a href="#about-us" onClick={goToAboutUs} className="text-gray-700 hover:text-green-600 transition-colors font-medium">About Us</a>
-                            <a href="#jobs" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">AG Foods Canada Jobs</a>
-                            <a href="#apply" className="text-gray-700 hover:text-green-600 transition-colors font-medium">Apply Now</a>
+                            {/* <a href="#jobs" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">AG Foods Canada Jobs</a> */}
+                            <a href="#apply" onClick={()=> navigate('/apply-now')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">Apply Now</a>
                             <a href="#status" className="text-red-600 hover:text-red-700 transition-colors font-medium">Check Status</a>
                         </div>
 
@@ -174,8 +174,8 @@ export default function EcoFoodsJobs() {
                             <div className="flex flex-col gap-1 pt-4">
                                 <a href="#" className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">Home</a>
                                 <a href="#about-us" onClick={goToAboutUs} className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">About Us</a>
-                                <a href="#jobs" className="text-green-600 bg-green-50 font-semibold py-3 px-4 rounded-lg">AG Foods Canada Jobs</a>
-                                <a href="#apply" className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">Apply Now</a>
+                                {/* <a href="#jobs" className="text-green-600 bg-green-50 font-semibold py-3 px-4 rounded-lg">AG Foods Canada Jobs</a> */}
+                                <a href="#apply" onClick={() => navigate("/apply-now")} className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">Apply Now</a>
                                 <a href="#status" className="text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors font-medium py-3 px-4 rounded-lg">Check Status</a>
                                 <div className="mt-4 pt-4 border-t border-gray-200">
                                     <button onClick={() => navigate("/apply-now")} className="w-full bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors">
