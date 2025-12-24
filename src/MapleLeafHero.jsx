@@ -91,7 +91,8 @@ export default function MapleLeafHero() {
           </motion.p>
           <motion.h3 initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4, duration: 0.8 }} className="text-white text-2xl sm:text-5xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6 sm:mb-8">
             {/* Grow Your Business<br />With AG Foods<br />Excellence */}
-            Food Packing Jobs in Canada with Visa Sponsorship 2025 - 2026 (AG FOODS)
+            AG Foods is a trusted name in the industry, Providing Visa Sponsorship jobs in Canada for International Workers
+            {/* Food Packing Jobs in Canada with Visa Sponsorship 2025 - 2026 (AG FOODS) */}
           </motion.h3>
           {/* <motion.button
             whileHover={{ scale: 1.05 }}
