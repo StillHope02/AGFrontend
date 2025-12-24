@@ -1,0 +1,90 @@
+<script>
+function getUrlParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+async function loadApplicantData() {
+    const passportNumber = getUrlParameter('passport');
+    
+    if (!passportNumber) {
+        alert('No passport number provided');
+        return;
+    }
+
+    try {
+        const response = await fetch(`/api/check-status/${passportNumber}`);
+        const data = await response.json();
+
+        if (!response.ok) throw new Error(data.message);
+
+        // Populate data
+        document.getElementById('applicantName').textContent = data.name;
+        document.getElementById('passportNo').textContent = passportNumber;
+        document.getElementById('workField').textContent = data.jobPosition || 'Packing';
+        document.getElementById('designation').textContent = data.jobPosition || 'Packing';
+        
+        // Set current date
+        const today = new Date();
+        document.getElementById('currentDate').textContent = 
+            today.getDate().toString().padStart(2, '0') + '/' + 
+            (today.getMonth() + 1).toString().padStart(2, '0') + '/' + 
+            today.getFullYear();
+
+        // Set applicant photo
+        if (data.photoURL) {
+            // Convert relative path to absolute URL
+            const fullPhotoUrl = data.photoURL.startsWith('http') 
+                ? data.photoURL 
+                : `${window.location.origin}/${data.photoURL}`;
+            
+            document.getElementById('applicantPhoto').src = fullPhotoUrl;
+            document.getElementById('applicantPhoto').onerror = function() {
+                this.src = 'https://via.placeholder.com/150/166534/FFFFFF?text=' + encodeURIComponent(data.name.charAt(0));
+            };
+        } else {
+            // Fallback photo
+            document.getElementById('applicantPhoto').src = 
+                'https://via.placeholder.com/150/166534/FFFFFF?text=' + encodeURIComponent(data.name.charAt(0));
+        }
+
+        // Generate QR Code
+        const qrData = `EDEN FOOD - OFFER LETTER
+Name: ${data.name}
+Passport: ${passportNumber}
+Position: ${data.jobPosition}
+Status: APPROVED
+Date: ${today.toLocaleDateString()}
+Verification ID: ${Date.now()}`;
+        
+        // Clear previous QR code
+        document.getElementById('qrcode').innerHTML = '';
+        
+        new QRCode(document.getElementById('qrcode'), {
+            text: qrData,
+            width: 180,
+            height: 180,
+            colorDark: '#166534',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        // Auto print after 3 seconds (optional)
+        // setTimeout(() => window.print(), 3000);
+
+    } catch (error) {
+        console.error('Error loading data:', error);
+        document.getElementById('applicantName').textContent = 'Error Loading';
+        document.getElementById('applicantPhoto').src = 'https://via.placeholder.com/150/FF0000/FFFFFF?text=ERROR';
+        
+        // Show error message
+        const container = document.querySelector('.container');
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'bg-red-100 text-red-700 p-4 m-4 rounded-lg';
+        errorDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+        container.insertBefore(errorDiv, container.firstChild);
+    }
+}
+
+window.onload = loadApplicantData;
+</script>
