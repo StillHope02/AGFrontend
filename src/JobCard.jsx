@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, Menu, X, ArrowRight, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import inventry from './assets/InventoryAssistant.jpg';
+import dataentry from './assets/DataEntry.jpg';
+import electrician from './assets/electrician.jpg';
+import logistic from './assets/logistic.jpg';
+import warehouse from './assets/warehouse.jpg';
 
 const JobCard = ({ title, salary, description, image, delay }) => {
     const navigate = useNavigate();
@@ -73,40 +78,133 @@ export default function EcoFoodsJobs() {
         {
             title: "Heavy Vehicle Driver",
             salary: "$26–$30/hour",
-            description: "Operate transport trucks between provinces. Class 1 or AZ license required.",
-            image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070"
+            description: "Operate long-haul transport trucks. Valid Class 1 / AZ license required.",
+            image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7"
         },
         {
             title: "Light Vehicle Driver",
             salary: "$20–$24/hour",
-            description: "Handle short-distance deliveries. Must have a valid license and clean driving record.",
-            image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=2065"
+            description: "Local deliveries with company vehicles. Clean driving record required.",
+            image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55"
         },
         {
             title: "Helper Staff",
             salary: "$17–$19/hour",
-            description: "Assist production teams with cleaning, lifting, and general support tasks.",
-            image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070"
+            description: "Support factory operations, lifting, cleaning, and assistance tasks.",
+            image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12"
         },
         {
-            title: "Fruit Packaging",
+            title: "Fruit Packaging Worker",
             salary: "$18–$22/hour",
-            description: "Sort, inspect, and package fresh fruits. Attention to detail required.",
-            image: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?q=80&w=2076"
+            description: "Sorting, packaging, and quality checking of fresh fruits.",
+            image: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5"
         },
         {
-            title: "Factory Cleaner",
+            title: "Packaging Specialist",
+            salary: "$19–$23/hour",
+            description: "Operate packaging machines and ensure product safety standards.",
+            image: "https://images.unsplash.com/photo-1586528116493-61a7d5f94f9b"
+        },
+        {
+            title: "Food Production Worker",
+            salary: "$18–$22/hour",
+            description: "Work on food production lines following hygiene and safety rules.",
+            image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d"
+        },
+        {
+            title: "Warehouse Associate",
+            salary: "$19–$23/hour",
+            description: "Handle inventory, loading, unloading, and warehouse operations.",
+            image: `${warehouse}`
+        },
+        {
+            title: "Inventory Assistant",
+            salary: "$18–$22/hour",
+            description: "Stock tracking, record keeping, and inventory audits.",
+            image: `${inventry}`
+        },
+        {
+            title: "Security Officer",
+            salary: "$20–$25/hour",
+            description: "Ensure safety of facilities, staff, and company assets.",
+            image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c"
+        },
+        {
+            title: "Maintenance Technician",
+            salary: "$24–$30/hour",
+            description: "Maintain machinery, perform repairs, and preventive maintenance.",
+            image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc"
+        },
+        {
+            title: "Plumber",
+            salary: "$25–$32/hour",
+            description: "Install and repair water supply and drainage systems.",
+            image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952"
+        },
+        {
+            title: "Electrician",
+            salary: "$26–$35/hour",
+            description: "Install and maintain electrical systems and equipment.",
+            image: `${electrician}`
+        },
+        {
+            title: "Sales Associate",
+            salary: "$18–$22/hour",
+            description: "Customer handling, sales support, and product guidance.",
+            image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+        },
+        {
+            title: "Logistics Coordinator",
+            salary: "$22–$28/hour",
+            description: "Coordinate shipments, schedules, and supply chain activities.",
+            image: `${logistic}`
+        },
+        {
+            title: "Data Entry Clerk",
             salary: "$17–$20/hour",
-            description: "Maintain cleanliness and hygiene standards in production facilities.",
-            image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=2070"
-        },
-        {
-            title: "Vegetable Sorter",
-            salary: "$18–$21/hour",
-            description: "Sort and grade vegetables according to quality standards.",
-            image: "https://images.unsplash.com/photo-1597362925123-77861d3fbac7?q=80&w=2070"
-        },
+            description: "Accurate data entry, documentation, and record management.",
+            image: `${dataentry}`
+        }
     ];
+
+    // const jobs = [
+    //     {
+    //         title: "Heavy Vehicle Driver",
+    //         salary: "$26–$30/hour",
+    //         description: "Operate transport trucks between provinces. Class 1 or AZ license required.",
+    //         image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070"
+    //     },
+    //     {
+    //         title: "Light Vehicle Driver",
+    //         salary: "$20–$24/hour",
+    //         description: "Handle short-distance deliveries. Must have a valid license and clean driving record.",
+    //         image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=2065"
+    //     },
+    //     {
+    //         title: "Helper Staff",
+    //         salary: "$17–$19/hour",
+    //         description: "Assist production teams with cleaning, lifting, and general support tasks.",
+    //         image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070"
+    //     },
+    //     {
+    //         title: "Fruit Packaging",
+    //         salary: "$18–$22/hour",
+    //         description: "Sort, inspect, and package fresh fruits. Attention to detail required.",
+    //         image: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?q=80&w=2076"
+    //     },
+    //     {
+    //         title: "Factory Cleaner",
+    //         salary: "$17–$20/hour",
+    //         description: "Maintain cleanliness and hygiene standards in production facilities.",
+    //         image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=2070"
+    //     },
+    //     {
+    //         title: "Vegetable Sorter",
+    //         salary: "$18–$21/hour",
+    //         description: "Sort and grade vegetables according to quality standards.",
+    //         image: "https://images.unsplash.com/photo-1597362925123-77861d3fbac7?q=80&w=2070"
+    //     },
+    // ];
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -141,7 +239,7 @@ export default function EcoFoodsJobs() {
                             <a href="#" onClick={() => navigate("/")} className="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
                             <a href="#about-us" onClick={goToAboutUs} className="text-gray-700 hover:text-green-600 transition-colors font-medium">About Us</a>
                             {/* <a href="#jobs" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">AG Foods Canada Jobs</a> */}
-                            <a href="#apply" onClick={()=> navigate('/apply-now')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">Apply Now</a>
+                            <a href="#apply" onClick={() => navigate('/apply-now')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">Apply Now</a>
                             <a href="#status" className="text-red-600 hover:text-red-700 transition-colors font-medium">Check Status</a>
                         </div>
 

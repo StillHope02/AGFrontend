@@ -27,7 +27,7 @@ export default function MapleLeafHero() {
 
       {/* Hero Section */}
       <div className="relative w-full">
-        <img src={backgroundImage} alt="AG Foods Background" className="w-full h-auto object-cover" />
+        <img src={backgroundImage} alt="AG Foods Background" className="w-full h-100 object-cover" />
         <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Navigation */}
@@ -35,7 +35,7 @@ export default function MapleLeafHero() {
           initial="hidden"
           animate="visible"
           variants={navVariants}
-          className="absolute inset-x-0 top-0 z-20 bg-white/70 backdrop-blur-sm"
+          className="absolute inset-x-0 top-0 z-20"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16 sm:h-20">
@@ -48,13 +48,13 @@ export default function MapleLeafHero() {
               <motion.div variants={fadeInUp} className="hidden lg:flex items-center gap-8">
                 <a href="#" className="text-green-800 font-semibold border-b-2 border-green-800 pb-1">Home</a>
                 <a href="#about-us" className="text-gray-800 hover:text-green-700 transition font-medium">About Us</a>
-                <a href="#" onClick={()=> navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</a>
+                <a href="#" onClick={() => navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</a>
                 <button onClick={() => navigate("/apply-now")} className="text-gray-800 hover:text-green-700 transition font-medium">Apply Now</button>
                 <a href="#" className="text-red-600 hover:text-red-700 transition font-medium">Check Status</a>
               </motion.div>
 
               {/* Mobile Menu Button */}
-              <button className="lg:hidden text-gray-800 hover:text-green-700 transition" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <button className="lg:hidden bg-white rounded p-1 text-gray-800 hover:text-green-700 transition" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
@@ -65,12 +65,12 @@ export default function MapleLeafHero() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 transition={{ duration: 0.4 }}
-                className="lg:hidden pb-4 space-y-3"
+                className="lg:hidden pb-4 space-y-3 bg-white"
               >
                 <a href="#" className="block text-green-800 font-semibold py-2 border-l-4 border-green-800 pl-4">Home</a>
                 <a href="#about-us" className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">About Us</a>
-                <a href="#" onClick={()=> navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</a>
-                 {/* <a href="#jobs" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">AG Foods Canada Jobs</a> */}
+                <a href="#" onClick={() => navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</a>
+                {/* <a href="#jobs" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">AG Foods Canada Jobs</a> */}
                 <a href="#" onClick={() => navigate("/apply-now")} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">Apply Now</a>
                 <a href="#" className="block text-red-600 hover:text-red-700 transition font-medium py-2 pl-4">Check Status</a>
               </motion.div>
@@ -83,14 +83,15 @@ export default function MapleLeafHero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
+          style={{ marginTop: '24px' }}
           className="absolute inset-0 z-10 flex flex-col justify-center items-start max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 md:pt-40"
         >
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="text-green-400 font-semibold text-sm sm:text-base md:text-lg mb-3 sm:mb-4 tracking-wide">
             Fresh & Sustainable Food Solutions
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4, duration: 0.8 }} className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 sm:mb-8">
+          <motion.h3 initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4, duration: 0.8 }} className="text-white text-2xl sm:text-5xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6 sm:mb-8">
             Grow Your Business<br />With AG Foods<br />Excellence
-          </motion.h1>
+          </motion.h3>
           <motion.button
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
@@ -102,7 +103,75 @@ export default function MapleLeafHero() {
       </div>
 
       {/* Call-to-Action Banner */}
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-green-700 text-white py-6 sm:py-8">
+      {/* Job Selection Banner */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative py-20 sm:py-24"
+      >
+        {/* Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d)",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        ></div>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/70"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+          {/* Left Content */}
+          <div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Choose the Right Job for Your Future in Canada
+            </h2>
+
+            <div className="w-24 h-1 bg-yellow-400 mb-6"></div>
+
+            <p className="text-gray-200 text-lg leading-relaxed mb-8">
+              Select from verified AG Foods Canada jobs with visa support,
+              legal documentation, and full relocation assistance.
+            </p>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/jobs")}
+              className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-full text-lg transition shadow-xl"
+            >
+              Select Your Job
+            </motion.button>
+          </div>
+
+          {/* Right Info Cards */}
+          <div className="grid grid-cols-2 gap-6">
+            {[
+              "Food Packing Jobs",
+              "Factory Helper",
+              "Warehouse Staff",
+              "Drivers & Operators"
+            ].map((job, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -5 }}
+                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-white shadow-lg"
+              >
+                <CheckCircle className="w-6 h-6 text-yellow-400 mb-3" />
+                <p className="font-semibold text-lg">{job}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-green-700 text-white py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-4">
           <div className="text-center lg:text-left">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
@@ -114,7 +183,7 @@ export default function MapleLeafHero() {
             Apply Now
           </motion.button>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* About Section */}
       <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} id="about-us" className="bg-white py-16 sm:py-20 lg:py-24">
@@ -673,6 +742,36 @@ export default function MapleLeafHero() {
 
       {/* WhatsApp Button */}
       <motion.a
+        animate={{ y: [0, -4, 0] }}
+        transition={{ repeat: Infinity, duration: 1.8 }}
+        href="https://wa.me/15819001004"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50"
+      >
+        <div className="flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-5 py-1 rounded-full shadow-xl transition-all hover:scale-105">
+
+          {/* WhatsApp Icon */}
+          <div className="bg-white/20 p-2 rounded-full flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487z" />
+            </svg>
+          </div>
+
+          {/* Text */}
+          <span className="font-semibold text-sm sm:text-base whitespace-nowrap">
+            ECO Foods Canada
+          </span>
+        </div>
+      </motion.a>
+
+      {/* <motion.a
         animate={{ y: [0, -5, 0] }}
         transition={{ repeat: Infinity, duration: 1.5 }}
         href="https://wa.me/15819001004"
@@ -683,7 +782,7 @@ export default function MapleLeafHero() {
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" className="sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
         </svg>
-      </motion.a>
+      </motion.a> */}
     </div>
   );
 }

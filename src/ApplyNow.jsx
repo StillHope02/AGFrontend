@@ -438,6 +438,7 @@ export default function ApplyNow() {
             >
               About Us
             </button>
+            <button onClick={()=> navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</button>
             <button className="text-green-700 font-semibold border-b-2 border-green-700 pb-1">Apply Now</button>
             <a href="#" className="text-red-600 hover:text-red-700 transition font-medium">Check Status</a>
           </div>
@@ -465,6 +466,7 @@ export default function ApplyNow() {
             >
               About Us
             </button>
+            <button onClick={()=> navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</button>
             <div className="block text-green-700 font-semibold py-2 border-l-4 border-green-700 pl-4">Apply Now</div>
             <a href="#" onClick={() => setIsMenuOpen(false)} className="block text-red-600 hover:text-red-700 transition font-medium py-2 pl-4">Check Status</a>
           </motion.div>
