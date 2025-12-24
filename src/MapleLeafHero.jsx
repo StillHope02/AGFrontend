@@ -137,11 +137,11 @@ export default function MapleLeafHero() {
 
             <div className="w-24 h-1 bg-yellow-400 mb-6"></div>
 
-            <p className="text-gray-200 text-lg leading-relaxed mb-8">
+            <p className="text-gray-200 text-lg leading-relaxed mb-2">
               Select from verified AG Foods Canada jobs with visa support,
               legal documentation, and full relocation assistance.
             </p>
-
+            <p className="text-sm sm:text-base text-green-100 mb-6">We Provide Free Visa | Ticket | Food</p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
