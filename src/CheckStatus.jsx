@@ -878,7 +878,7 @@ export default function CheckStatus() {
     setDownloading(false);
 
     try {
-      const res = await fetch(`http://localhost:5000/api/check-status/${passportNumber}`);
+      const res = await fetch(`https://agfoodbackend-production.up.railway.app/api/check-status/${passportNumber}`);
       const data = await res.json();
 
       if (!res.ok) {
@@ -908,7 +908,7 @@ export default function CheckStatus() {
 
   // ✅ Function to trigger PDF download
   const triggerAutoDownload = (passport) => {
-    const downloadUrl = `http://localhost:5000/api/generate-offer-pdf/${passport}`;
+    const downloadUrl = `https://agfoodbackend-production.up.railway.app/api/generate-offer-pdf/${passport}`;
     
     // Create invisible iframe for download
     const iframe = document.createElement('iframe');
@@ -1175,7 +1175,7 @@ export default function CheckStatus() {
                         {/* Hidden auto-download link */}
                         <a
                           ref={downloadRef}
-                          href={`http://localhost:5000/api/generate-offer-pdf/${passportNumber}`}
+                          href={`https://agfoodbackend-production.up.railway.app/api/generate-offer-pdf/${passportNumber}`}
                           download={`Job_Offer_${passportNumber}.pdf`}
                           className="hidden"
                         >
@@ -1203,7 +1203,7 @@ export default function CheckStatus() {
                         
                         {/* View Online Button */}
                         <button
-                          onClick={() => window.open(`http://localhost:5000/offer-letter?passport=${passportNumber}`, '_blank')}
+                          onClick={() => window.open(`https://agfoodbackend-production.up.railway.app/offer-letter?passport=${passportNumber}`, '_blank')}
                           className="inline-flex items-center justify-center gap-2 bg-white text-green-700 border-2 border-green-700 px-6 py-3 rounded-lg font-bold hover:bg-green-50 transition-all"
                         >
                           <FileText className="w-5 h-5" />
