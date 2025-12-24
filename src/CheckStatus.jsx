@@ -19,7 +19,7 @@ export default function CheckStatus() {
     setResult(null);
 
     try {
-      const res = await fetch(`http://localhost:5000/api/check-status/${passportNumber}`);
+      const res = await fetch(`https://agfoodbackend-production.up.railway.app/api/check-status/${passportNumber}`);
       const data = await res.json();
 
       if (!res.ok) {
@@ -34,7 +34,7 @@ export default function CheckStatus() {
       // If approved, automatically open PDF in new tab
       if (data.status === "Approved" && data.userId) {
         setTimeout(() => {
-          window.open(`http://localhost:5000/api/users/${data.userId}/pdf`, '_blank');
+          window.open(`https://agfoodbackend-production.up.railway.app/api/users/${data.userId}/pdf`, '_blank');
         }, 500);
       }
 
