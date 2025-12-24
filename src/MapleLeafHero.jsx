@@ -766,7 +766,7 @@ export default function MapleLeafHero() {
 
           {/* Text */}
           <span className="font-semibold text-sm sm:text-base whitespace-nowrap">
-            ECO Foods Canada
+            AG Foods Canada
           </span>
         </div>
       </motion.a>
