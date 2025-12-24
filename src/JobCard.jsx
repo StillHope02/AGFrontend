@@ -7,7 +7,7 @@ import dataentry from './assets/DataEntry.jpg';
 import electrician from './assets/electrician.jpg';
 import logistic from './assets/logistic.jpg';
 import warehouse from './assets/warehouse.jpg';
-import packing from './assets/packaging.jpg';
+import packing from './assets/packing.jpg';
 
 const JobCard = ({ title, salary, description, image, delay }) => {
     const navigate = useNavigate();
