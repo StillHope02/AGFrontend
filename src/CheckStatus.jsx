@@ -978,7 +978,7 @@ export default function CheckStatus() {
           <div className="hidden lg:flex gap-6 items-center">
             <button onClick={() => navigate("/")} className="hover:text-green-700">Home</button>
             <button onClick={() => navigate("/jobs")} className="hover:text-green-700">Jobs</button>
-            <button onClick={() => navigate("/apply")} className="hover:text-green-700">Apply Now</button>
+            <button onClick={() => navigate("/apply-now")} className="hover:text-green-700">Apply Now</button>
             <button className="font-bold text-green-700">Check Status</button>
           </div>
         </div>

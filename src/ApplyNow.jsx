@@ -355,7 +355,7 @@
 
 // //   const handleSubmit = async (e) => {
 // //   e.preventDefault();
-  
+
 // //   try {
 // //     // Validate files before submitting
 // //     if (!form.photo || !form.passportImage) {
@@ -364,7 +364,7 @@
 // //     }
 
 // //     const formData = new FormData();
-    
+
 // //     // Append all form fields
 // //     Object.keys(form).forEach((key) => {
 // //       if (form[key]) {
@@ -380,7 +380,7 @@
 // //     });
 
 // //     const data = await res.json();
-    
+
 // //     if (!res.ok) {
 // //       throw new Error(data.message || "Submission failed");
 // //     }
@@ -399,7 +399,7 @@
 // //       certificate: null,
 // //     });
 // //     setPreviews({ photo: null, passportImage: null, certificate: null });
-    
+
 // //     // Clear file inputs
 // //     document.querySelectorAll('input[type="file"]').forEach((input) => {
 // //       input.value = "";
@@ -707,7 +707,7 @@
 
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
-    
+
 //     try {
 //       // Validate files before submitting
 //       if (!form.photo || !form.passportImage) {
@@ -716,7 +716,7 @@
 //       }
 
 //       const formData = new FormData();
-      
+
 //       // Append all form fields
 //       Object.keys(form).forEach((key) => {
 //         if (form[key]) {
@@ -732,7 +732,7 @@
 //       });
 
 //       const data = await res.json();
-      
+
 //       if (!res.ok) {
 //         throw new Error(data.message || "Submission failed");
 //       }
@@ -752,7 +752,7 @@
 //         certificate: null,
 //       });
 //       setPreviews({ photo: null, passportImage: null, certificate: null });
-      
+
 //       // Clear file inputs
 //       document.querySelectorAll('input[type="file"]').forEach((input) => {
 //         input.value = "";
@@ -1076,7 +1076,7 @@ export default function ApplyNow() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       // Validate files before submitting
       if (!form.photo || !form.passportImage) {
@@ -1085,7 +1085,7 @@ export default function ApplyNow() {
       }
 
       const formData = new FormData();
-      
+
       // Append all form fields
       Object.keys(form).forEach((key) => {
         if (form[key]) {
@@ -1101,7 +1101,7 @@ export default function ApplyNow() {
       });
 
       const data = await res.json();
-      
+
       if (!res.ok) {
         throw new Error(data.message || "Submission failed");
       }
@@ -1122,7 +1122,7 @@ export default function ApplyNow() {
         certificate: null,
       });
       setPreviews({ photo: null, passportImage: null, certificate: null });
-      
+
       // Clear file inputs
       document.querySelectorAll('input[type="file"]').forEach((input) => {
         input.value = "";
@@ -1138,7 +1138,63 @@ export default function ApplyNow() {
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
 
       {/* ================= NAVBAR ================= */}
-      <nav className="bg-white shadow sticky top-0 z-50">
+      <motion.nav
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+          <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
+            <img src={logoImage} alt="Logo" className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
+          </div>
+
+          <div className="hidden lg:flex items-center gap-8">
+            <button onClick={() => navigate("/")} className="text-gray-700 hover:text-green-700 transition font-medium">Home</button>
+            <button
+              onClick={() => {
+                navigate("/");
+                setTimeout(() => document.getElementById("about-us")?.scrollIntoView({ behavior: "smooth" }), 100);
+              }}
+              className="text-gray-700 hover:text-green-700 transition font-medium"
+            >
+              About Us
+            </button>
+            <button onClick={() => navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</button>
+            <button className="text-green-700 font-semibold border-b-2 border-green-700 pb-1">Apply Now</button>
+            <a href="#" className="text-red-600 hover:text-red-700 transition font-medium">Check Status</a>
+          </div>
+
+          <button className="lg:hidden text-gray-700 hover:text-green-700 transition" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {isMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="lg:hidden pb-4 space-y-3"
+          >
+            <button onClick={() => { setIsMenuOpen(false); navigate("/"); }} className="block text-gray-700 hover:text-green-700 transition font-medium py-2 pl-4 w-full text-left">Home</button>
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                navigate("/");
+                setTimeout(() => document.getElementById("about-us")?.scrollIntoView({ behavior: "smooth" }), 100);
+              }}
+              className="block text-gray-700 hover:text-green-700 transition font-medium py-2 pl-4 w-full text-left"
+            >
+              About Us
+            </button>
+            <button onClick={() => navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</button>
+            <div onClick={()=> navigate('/apply-now')} className="block text-green-700 font-semibold py-2 border-l-4 border-green-700 pl-4">Apply Now</div>
+            <a href="#" onClick={() => setIsMenuOpen(false)} className="block text-red-600 hover:text-red-700 transition font-medium py-2 pl-4">Check Status</a>
+          </motion.div>
+        )}
+      </motion.nav>
+      {/* <nav className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
           <img
             src={logoImage}
@@ -1158,7 +1214,7 @@ export default function ApplyNow() {
             <button onClick={() => navigate('/status')} className="font-bold text-red-700">Check Status</button>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       {/* ================= FORM ================= */}
       <div className="flex justify-center px-4 py-12">
@@ -1379,6 +1435,111 @@ export default function ApplyNow() {
 
           <div className="bg-gray-50 text-center py-3 text-xs text-gray-500">
             All documents are confidential and secure.
+          </div>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="bg-white rounded-3xl shadow-xl p-8">
+
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Job Benefits Include</h2>
+          <p className="text-gray-600 mb-8">
+            AG Food Visa provides numerous benefits to ensure a comfortable work experience for its employees:
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-bold text-gray-800">Free Visa:</span>
+                <span className="text-gray-600"> No visa fees are required.</span>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-bold text-gray-800">Free Accommodation:</span>
+                <span className="text-gray-600"> Housing is provided near the workplace.</span>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-bold text-gray-800">Free Ticket:</span>
+                <span className="text-gray-600"> One-time two-way airfare covered.</span>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-bold text-gray-800">Free Food:</span>
+                <span className="text-gray-600"> Three meals per day provided.</span>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-bold text-gray-800">Free Insurance:</span>
+                <span className="text-gray-600"> Full medical and health insurance coverage.</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 className="text-xl font-bold text-gray-800 mb-4">Other Perks:</h3>
+          <div className="space-y-3 mb-8">
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-gray-600">Assistance with relocation.</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-gray-600">Opportunity to apply for permanent residency after employment.</p>
+            </div>
+          </div>
+
+          <h3 className="text-xl font-bold text-gray-800 mb-4">Eligibility Criteria to Apply</h3>
+          <div className="space-y-3 mb-8">
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-bold text-gray-800">Age:</span>
+                <span className="text-gray-600"> Must be 18 years or older.</span>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-bold text-gray-800">Language Skills:</span>
+                <span className="text-gray-600"> Basic knowledge of English or French preferred.</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 className="text-xl font-bold text-gray-800 mb-4">Documents Required:</h3>
+          <div className="space-y-3">
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-gray-600">Valid Passport</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-gray-600">CNIC/NIC (National ID Card)</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-gray-600">Recent Passport-Size Photo</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-gray-600">Character Certificate</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-gray-600">Health & Fitness: Should be physically fit for the job.</p>
+            </div>
           </div>
         </div>
       </div>
