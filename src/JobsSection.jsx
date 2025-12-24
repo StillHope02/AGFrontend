@@ -18,7 +18,7 @@ export default function JobsSection() {
       className="relative bg-cover bg-center bg-no-repeat py-16 sm:py-20 lg:py-24"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      {/* Overlay */}
+      {/* Overlay */} 
       <div className="absolute inset-0 bg-black/20"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
