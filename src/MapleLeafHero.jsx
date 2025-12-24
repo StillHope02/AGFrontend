@@ -87,18 +87,19 @@ export default function MapleLeafHero() {
           className="absolute inset-0 z-10 flex flex-col justify-center items-start max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 md:pt-40"
         >
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="text-green-400 font-semibold text-sm sm:text-base md:text-lg mb-3 sm:mb-4 tracking-wide">
-            Fresh & Sustainable Food Solutions
+            {/* Fresh & Sustainable Food Solutions */}
           </motion.p>
           <motion.h3 initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4, duration: 0.8 }} className="text-white text-2xl sm:text-5xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6 sm:mb-8">
-            Grow Your Business<br />With AG Foods<br />Excellence
+            {/* Grow Your Business<br />With AG Foods<br />Excellence */}
+            Food Packing Jobs in Canada with Visa Sponsorship 2025 - 2026 (AG FOODS)
           </motion.h3>
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
             className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-full transition text-sm sm:text-base"
           >
             Learn More
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </div>
 
