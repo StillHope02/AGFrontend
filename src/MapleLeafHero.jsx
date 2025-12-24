@@ -212,6 +212,123 @@ export default function MapleLeafHero() {
 
       {/* Mission & Values Section */}
       <MissionValuesSection />
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="bg-gray-50 py-16 sm:py-20 lg:py-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Why Choose AG Foods Canada?
+            </h2>
+            <div className="w-24 h-1 bg-green-700 mx-auto mb-6"></div>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              We provide everything you need for a successful career in Canada
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 - Authentic Job Listings */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ y: -10 }}
+              className="relative overflow-hidden rounded-3xl shadow-xl group"
+            >
+              <div className="absolute inset-0">
+                <img
+                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  alt="Job Listings"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-orange-900/70 to-orange-950/90"></div>
+              </div>
+              <div className="relative p-8 text-white min-h-[350px] flex flex-col">
+                <div className="bg-orange-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Authentic Job Listings</h3>
+                <p className="text-orange-100 leading-relaxed">
+                  We offer verified job opportunities in Canada with top companies.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card 2 - Visa Sponsorship */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ y: -10 }}
+              className="relative overflow-hidden rounded-3xl shadow-xl group"
+            >
+              <div className="absolute inset-0">
+                <img
+                  src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  alt="Visa Sponsorship"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-blue-950/90"></div>
+              </div>
+              <div className="relative p-8 text-white min-h-[350px] flex flex-col">
+                <div className="bg-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Visa Sponsorship</h3>
+                <p className="text-blue-100 leading-relaxed">
+                  Our jobs come with full visa support, ensuring an easy application process.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card 3 - Comprehensive Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ y: -10 }}
+              className="relative overflow-hidden rounded-3xl shadow-xl group"
+            >
+              <div className="absolute inset-0">
+                <img
+                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  alt="Benefits"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-amber-900/70 to-amber-950/90"></div>
+              </div>
+              <div className="relative p-8 text-white min-h-[350px] flex flex-col">
+                <div className="bg-yellow-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Comprehensive Benefits</h3>
+                <p className="text-yellow-100 leading-relaxed">
+                  Workers enjoy free lodging, meals, medical insurance, and travel support.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
       <JobsSection />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
