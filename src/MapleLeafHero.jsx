@@ -72,7 +72,7 @@ export default function MapleLeafHero() {
                 <a href="#" onClick={() => navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</a>
                 {/* <a href="#jobs" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">AG Foods Canada Jobs</a> */}
                 <a href="#" onClick={() => navigate("/apply-now")} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">Apply Now</a>
-                <a href="#" className="block text-red-600 hover:text-red-700 transition font-medium py-2 pl-4">Check Status</a>
+                <a href="#" onClick={() => navigate("/status")} className="block text-red-600 hover:text-red-700 transition font-medium py-2 pl-4">Check Status</a>
               </motion.div>
             )}
           </div>

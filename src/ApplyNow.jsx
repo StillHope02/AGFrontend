@@ -431,6 +431,7 @@ export default function ApplyNow() {
             <button onClick={() => navigate("/")}>Home</button>
             <button onClick={() => navigate("/jobs")}>Jobs</button>
             <button className="font-bold text-green-700">Apply Now</button>
+            <button onClick={()=> navigate('/status')} className="font-bold text-red-700">Check Status</button>
           </div>
         </div>
       </nav>

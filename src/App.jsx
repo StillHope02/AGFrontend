@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AdminPanel from './AdminPanel'
 import FoodsJobs from './JobCard'
 import AdminDashboard from './AdminDashboard'
+import CheckStatus from './CheckStatus'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/jobs" element={<FoodsJobs />} />
           <Route path='/user-info' element={<AdminDashboard/>} />
+          <Route path='/status' element={<CheckStatus />} />
         </Routes>
       </BrowserRouter>
     // </>
