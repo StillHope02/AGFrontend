@@ -331,7 +331,275 @@ export default function MapleLeafHero() {
           </div>
         </div>
       </motion.div>
-      
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="bg-gradient-to-b from-white to-gray-50 py-16 sm:py-20 lg:py-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Meet Our Leadership Team
+            </h2>
+            <div className="w-24 h-1 bg-green-700 mx-auto mb-6"></div>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              Experienced professionals guiding AG Foods towards excellence in food innovation and global partnerships
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* CEO Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ y: -10 }}
+              className="relative overflow-hidden rounded-2xl shadow-xl group bg-white"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-yellow-50"></div>
+              <div className="relative p-8 min-h-[350px] flex flex-col items-center text-center">
+                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    alt="CEO"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">CEO</h3>
+                <p className="text-green-700 font-semibold mb-4">Executive Leadership</p>
+                <p className="text-gray-600 leading-relaxed">
+                  Strategic visionary driving AG Foods' growth and innovation in the global food industry.
+                </p>
+                <div className="mt-4 flex space-x-3">
+                  <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                    Strategy
+                  </span>
+                  <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
+                    Innovation
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Manager Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ y: -10 }}
+              className="relative overflow-hidden rounded-2xl shadow-xl group bg-white"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50"></div>
+              <div className="relative p-8 min-h-[350px] flex flex-col items-center text-center">
+                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+                  <img
+                    src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    alt="Manager"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Manager</h3>
+                <p className="text-green-700 font-semibold mb-4">Operations Excellence</p>
+                <p className="text-gray-600 leading-relaxed">
+                  Overseeing daily operations and ensuring quality standards across all AG Foods facilities.
+                </p>
+                <div className="mt-4 flex space-x-3">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                    Operations
+                  </span>
+                  <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                    Quality
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Supervisor Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ y: -10 }}
+              className="relative overflow-hidden rounded-2xl shadow-xl group bg-white"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-orange-50"></div>
+              <div className="relative p-8 min-h-[350px] flex flex-col items-center text-center">
+                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+                  <img
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    alt="Supervisor"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Supervisor</h3>
+                <p className="text-green-700 font-semibold mb-4">Team Leadership</p>
+                <p className="text-gray-600 leading-relaxed">
+                  Leading production teams and maintaining highest standards in food processing and packaging.
+                </p>
+                <div className="mt-4 flex space-x-3">
+                  <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
+                    Leadership
+                  </span>
+                  <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
+                    Production
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* John Teto Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ y: -10 }}
+              className="relative overflow-hidden rounded-2xl shadow-xl group bg-white"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50"></div>
+              <div className="relative p-8 min-h-[350px] flex flex-col items-center text-center">
+                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    alt="John Teto"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">John Teto</h3>
+                <p className="text-green-700 font-semibold mb-4">Business Development</p>
+                <p className="text-gray-600 leading-relaxed">
+                  Expanding partnerships and driving market growth through strategic business initiatives.
+                </p>
+                <div className="mt-4 flex space-x-3">
+                  <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+                    Business Dev
+                  </span>
+                  <span className="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm font-medium">
+                    Partnerships
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Akash Verma Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              whileHover={{ y: -10 }}
+              className="relative overflow-hidden rounded-2xl shadow-xl group bg-white"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-blue-50"></div>
+              <div className="relative p-8 min-h-[350px] flex flex-col items-center text-center">
+                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+                  <img
+                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    alt="Akash Verma"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Akash Verma</h3>
+                <p className="text-green-700 font-semibold mb-4">Technical Operations</p>
+                <p className="text-gray-600 leading-relaxed">
+                  Managing technical aspects of production and ensuring operational efficiency.
+                </p>
+                <div className="mt-4 flex space-x-3">
+                  <span className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm font-medium">
+                    Technical
+                  </span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                    Efficiency
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Syed Khalid Mehmood Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              whileHover={{ y: -10 }}
+              className="relative overflow-hidden rounded-2xl shadow-xl group bg-white"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50"></div>
+              <div className="relative p-8 min-h-[350px] flex flex-col items-center text-center">
+                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+                  <img
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    alt="Syed Khalid Mehmood"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Syed Khalid Mehmood</h3>
+                <p className="text-green-700 font-semibold mb-4">International Relations</p>
+                <p className="text-gray-600 leading-relaxed">
+                  Facilitating global partnerships and managing international workforce programs.
+                </p>
+                <div className="mt-4 flex space-x-3">
+                  <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium">
+                    Global Relations
+                  </span>
+                  <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
+                    Workforce
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.7 }}
+            className="mt-16 text-center"
+          >
+            <div className="bg-gradient-to-r from-green-50 to-yellow-50 border border-green-200 rounded-2xl p-8 sm:p-10 shadow-lg">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Partner With Our Experienced Team
+              </h3>
+              <p className="text-gray-600 text-lg sm:text-xl mb-8 max-w-3xl mx-auto">
+                Our leadership team brings decades of combined experience in food industry innovation,
+                business development, and international operations.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate("/apply-now")}
+                  className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-full transition text-base sm:text-lg inline-flex items-center justify-center"
+                >
+                  <Users className="w-5 h-5 mr-2" />
+                  Join Our Team
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-transparent border-2 border-green-700 text-green-700 hover:bg-green-50 font-bold py-3 px-8 rounded-full transition text-base sm:text-lg inline-flex items-center justify-center"
+                >
+                  <TrendingUp className="w-5 h-5 mr-2" />
+                  Explore Partnerships
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
       <JobsSection />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -864,7 +1132,7 @@ export default function MapleLeafHero() {
       <motion.a
         animate={{ y: [0, -4, 0] }}
         transition={{ repeat: Infinity, duration: 1.8 }}
-        href="https://wa.me/15819001004"
+        href="https://wa.me/0019027059056"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50"

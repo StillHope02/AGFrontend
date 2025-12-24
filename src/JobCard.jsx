@@ -541,7 +541,7 @@ export default function EcoFoodsJobs() {
              <motion.a
                     animate={{ y: [0, -4, 0] }}
                     transition={{ repeat: Infinity, duration: 1.8 }}
-                    href="https://wa.me/15819001004"
+                    href="https://wa.me/0019027059056"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50"
