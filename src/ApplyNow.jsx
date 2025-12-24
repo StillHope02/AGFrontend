@@ -1513,7 +1513,7 @@ export default function ApplyNow() {
               <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
               <div>
                 <span className="font-bold text-gray-800">Language Skills:</span>
-                <span className="text-gray-600"> Basic knowledge of English or French preferred.</span>
+                <span className="text-gray-600"> Basic knowledge of English, Urdu, Hindi and Arabic.</span>
               </div>
             </div>
           </div>
@@ -1526,7 +1526,7 @@ export default function ApplyNow() {
             </div>
             <div className="flex gap-3">
               <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>
-              <p className="text-gray-600">CNIC/NIC (National ID Card)</p>
+              <p className="text-gray-600">National ID Card</p>
             </div>
             <div className="flex gap-3">
               <div className="w-2 h-2 bg-green-700 rounded-full mt-2 flex-shrink-0"></div>

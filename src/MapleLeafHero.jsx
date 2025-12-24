@@ -331,6 +331,7 @@ export default function MapleLeafHero() {
           </div>
         </div>
       </motion.div>
+      
       <JobsSection />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
