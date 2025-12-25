@@ -524,7 +524,7 @@ export default function OfferLetterPage() {
         
         y += 5;
         doc.setFont("helvetica", "normal");
-        doc.text(`You Will employed in the position of ${user?.workField || 'Food Packer'} Your normal place of Work Will`, margin + 5, y);
+        doc.text(`You Will employed in the position of ${user?.jobPosition || 'Food Packer'} Your normal place of Work Will`, margin + 5, y);
         y += 4;
         doc.text("be  CANADA MEINHARDT FINE FOODS", margin + 5, y);
         
