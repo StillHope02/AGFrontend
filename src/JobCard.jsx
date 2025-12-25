@@ -20,6 +20,7 @@ import heavyVehicle from './assets/heavyVehicle.jpg';
 import cashier from './assets/cashier.jpg';
 import supervisor from './assets/supervisor.jpg';
 import manager from './assets/manager.jpg';
+import heroSection from './assets/heroSection.jpg';
   
 // JobCard component
 const JobCard = ({ title, salary, description, image, delay }) => {
@@ -289,7 +290,7 @@ export default function EcoFoodsJobs() {
                 transition={{ duration: 1 }}
                 className="relative bg-gradient-to-br from-green-900 via-green-800 to-green-700 text-white py-20 sm:py-28 lg:py-32 overflow-hidden"
                 style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=2070)',
+                    backgroundImage: `url(${heroSection})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundBlendMode: 'overlay'
