@@ -9,7 +9,7 @@ import logistic from './assets/logistic.jpg';
 import warehouse from './assets/warehouse.jpg';
 import packing from './assets/packing.jpg';
 import security from './assets/securityOfficer.jpg';
-import maintenance from './assets/maintenance.jpg';
+import maintenance from './assets/technician.jpg';
 import plumber from './assets/newPlumber.jpg';
 import sales from './assets/saleAssociate.jpg';
 import foodproduction from './assets/productionWorker.jpg';
