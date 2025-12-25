@@ -6,6 +6,7 @@ import Image01 from './assets/AboutFood01.jpg';
 import MissionValuesSection from './MissionValuesSection';
 import { useNavigate } from "react-router-dom";
 import JobsSection from './JobsSection';
+import mainImage from './assets/MainPageBg.jpg';
 import { Menu, X, CheckCircle, Users, Shield, TrendingUp, HeadphonesIcon, Cpu, FileText, Video, Plane, Home } from 'lucide-react';
 
 export default function MapleLeafHero() {
@@ -27,7 +28,7 @@ export default function MapleLeafHero() {
 
       {/* Hero Section */}
       <div className="relative w-full">
-        <img src={backgroundImage} loading="lazy" decoding="async" alt="AG Foods Background" className="w-full h-100 object-cover" />
+        <img src={mainImage} loading="lazy" decoding="async" alt="AG Foods Background" className="w-full h-100 object-cover" />
         <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Navigation */}
