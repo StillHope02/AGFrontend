@@ -7,6 +7,10 @@ import MissionValuesSection from './MissionValuesSection';
 import { useNavigate } from "react-router-dom";
 import JobsSection from './JobsSection';
 import mainImage from './assets/MainPageBg.jpg';
+import muslimWoman from './assets/muslim.jpg';
+import indianman from './assets/indian.jpg';
+import newBG from './assets/notHDBG.jpg';
+import interviewBg from './assets/interview.jpg';
 import { Menu, X, CheckCircle, Users, Shield, TrendingUp, HeadphonesIcon, Cpu, FileText, Video, Plane, Home } from 'lucide-react';
 
 export default function MapleLeafHero() {
@@ -30,7 +34,7 @@ export default function MapleLeafHero() {
 
       {/* Hero Section */}
       <div className="relative w-full">
-        <img src={mainImage} loading="eager"
+        <img src={newBG} loading="eager"
           fetchpriority="high"
           decoding="async"
           alt="AG Foods Background"
@@ -128,8 +132,8 @@ export default function MapleLeafHero() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d)",
+            backgroundImage: `url(${interviewBg})`,
+              // "url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d)",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}
@@ -516,7 +520,7 @@ export default function MapleLeafHero() {
               <div className="relative p-8 min-h-[350px] flex flex-col items-center text-center">
                 <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
                   <img
-                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    src={indianman}
                     alt="Akash Verma"
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
@@ -550,7 +554,7 @@ export default function MapleLeafHero() {
               <div className="relative p-8 min-h-[350px] flex flex-col items-center text-center">
                 <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
                   <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    src={muslimWoman}
                     alt="Syed Khalid Mehmood"
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
