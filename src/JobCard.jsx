@@ -47,7 +47,8 @@ const JobCard = ({ title, salary, description, image, delay }) => {
                     <img
                         src={image}
                         alt={title}
-                        loading="lazy"
+                        loading="easger"
+                         fetchpriority="high"
                         decoding="async"
                         className="w-full h-48 sm:h-56 object-cover rounded-xl"
                     />
