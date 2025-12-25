@@ -1048,10 +1048,12 @@ export default function ApplyNow() {
     photo: null,
     passportImage: null,
     certificate: null,
+    profilePicture: null,
   });
 
   const [previews, setPreviews] = useState({
     photo: null,
+     profilePicture: null,
     passportImage: null,
     certificate: null,
   });
@@ -1120,8 +1122,9 @@ export default function ApplyNow() {
         photo: null,
         passportImage: null,
         certificate: null,
+        profilePicture: null,
       });
-      setPreviews({ photo: null, passportImage: null, certificate: null });
+      setPreviews({ photo: null, profilePicture: null,passportImage: null, certificate: null });
 
       // Clear file inputs
       document.querySelectorAll('input[type="file"]').forEach((input) => {
@@ -1189,7 +1192,7 @@ export default function ApplyNow() {
               About Us
             </button>
             <button onClick={() => navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</button>
-            <div onClick={()=> navigate('/apply-now')} className="block text-green-700 font-semibold py-2 border-l-4 border-green-700 pl-4">Apply Now</div>
+            <div onClick={() => navigate('/apply-now')} className="block text-green-700 font-semibold py-2 border-l-4 border-green-700 pl-4">Apply Now</div>
             <a href="#" onClick={() => setIsMenuOpen(false)} className="block text-red-600 hover:text-red-700 transition font-medium py-2 pl-4">Check Status</a>
           </motion.div>
         )}
@@ -1371,6 +1374,37 @@ export default function ApplyNow() {
                   </div>
                 )}
               </div>
+              {/* ================= PROFILE PICTURE ================= */}
+              <div className="border-2 border-dashed rounded-xl p-4 hover:border-green-600 transition">
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <ImageIcon className="text-green-700" />
+                  <span className="font-semibold">Profile Picture</span>
+                  <span className="text-xs text-gray-500">(Required)</span>
+
+                  <input
+                    type="file"
+                    name="profilePicture"
+                    required
+                    accept="image/*"
+                    onChange={handleFile}
+                    className="hidden"
+                  />
+                </label>
+
+                {previews.profilePicture && (
+                  <div className="mt-3 flex items-center gap-3">
+                    <img
+                      src={previews.profilePicture}
+                      alt="Profile Preview"
+                      className="w-20 h-20 rounded-full object-cover border"
+                    />
+                    <span className="text-sm text-gray-600">
+                      {form.profilePicture?.name}
+                    </span>
+                  </div>
+                )}
+              </div>
+
 
               {/* Passport Copy */}
               <div className="border-2 border-dashed rounded-xl p-4 hover:border-green-600 transition">

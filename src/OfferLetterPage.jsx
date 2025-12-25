@@ -91,12 +91,12 @@
 
 //       {/* Main Offer Letter Container */}
 //       <div className="max-w-5xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden">
-        
+
 //         {/* Header with Logo and Company Info */}
 //         <div className="bg-gradient-to-r from-green-900 to-green-800 text-white p-8 relative overflow-hidden">
 //           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
 //           <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full -ml-24 -mb-24"></div>
-          
+
 //           <div className="relative z-10 flex items-start justify-between">
 //             {/* Logo and Company Name */}
 //             <div className="flex items-center gap-4">
@@ -352,6 +352,7 @@ export default function OfferLetterPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [qrCodeUrl, setQrCodeUrl] = useState('');
+  const [generatingProfile, setGeneratingProfile] = useState(false);
 
   const getPassportFromURL = () => {
     const params = new URLSearchParams(window.location.search);
@@ -365,25 +366,25 @@ export default function OfferLetterPage() {
     generateQRCode();
   }, []);
 
-   const getBase64Image = async (imgSrc) => {
-        return new Promise((resolve) => {
-            const img = new Image();
-            img.crossOrigin = 'anonymous';
-            img.src = imgSrc;
-            img.onload = () => {
-                const canvas = document.createElement('canvas');
-                canvas.width = img.width;
-                canvas.height = img.height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0);
-                resolve(canvas.toDataURL('image/png'));
-            };
-            img.onerror = () => {
-                console.log('Failed to load image:', imgSrc);
-                resolve(null);
-            };
-        });
-    };
+  const getBase64Image = async (imgSrc) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.src = imgSrc;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        resolve(canvas.toDataURL('image/png'));
+      };
+      img.onerror = () => {
+        console.log('Failed to load image:', imgSrc);
+        resolve(null);
+      };
+    });
+  };
 
   const fetchApplicationData = async () => {
     try {
@@ -415,356 +416,371 @@ export default function OfferLetterPage() {
   //   window.location.href = `https://agfoodbackend-production.up.railway.app/api/generate-offer-pdf/${passportNumber}`;
   // };
 
-   const generatePDF = async (user) => {
-        // const { jsPDF } = window.jspdf;
+  const generatePDF = async (user) => {
+    // const { jsPDF } = window.jspdf;
 
-        // if (!jsPDF) {
-        //     alert("PDF library not loaded. Please try again.");
-        //     return;
-        // }
+    // if (!jsPDF) {
+    //     alert("PDF library not loaded. Please try again.");
+    //     return;
+    // }
 
-        const doc = new jsPDF({
-            orientation: 'portrait',
-            unit: 'mm',
-            format: 'a4'
-        });
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4'
+    });
 
-        const pageWidth = 210;
-        const pageHeight = 297;
-        const margin = 20;
+    const pageWidth = 210;
+    const pageHeight = 297;
+    const margin = 20;
 
-        // Colors - Only red color
-        const redColor = [237, 28, 36];
+    // Colors - Only red color
+    const redColor = [237, 28, 36];
 
-        // For now, use URLs. Replace with your imported images later
-        const stamp01 = `${stampApproved}`;//'https://cdn-icons-png.flaticon.com/512/1828/1828640.png';
-        const stamp02 = `${stampApproved2}`;//'https://cdn-icons-png.flaticon.com/512/3067/3067257.png';
-        const canadaFlag = `${flag}`;//'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1200px-Flag_of_Canada_%28Pantone%29.svg.png';
-        const agFoodsLogo = `${agFoods}` //'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80';
+    // For now, use URLs. Replace with your imported images later
+    const stamp01 = `${stampApproved}`;//'https://cdn-icons-png.flaticon.com/512/1828/1828640.png';
+    const stamp02 = `${stampApproved2}`;//'https://cdn-icons-png.flaticon.com/512/3067/3067257.png';
+    const canadaFlag = `${flag}`;//'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1200px-Flag_of_Canada_%28Pantone%29.svg.png';
+    const agFoodsLogo = `${agFoods}` //'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80';
 
-        // Function to add images
-        const addImage = async (imgUrl, x, y, width, height) => {
-            try {
-                const base64Img = await getBase64Image(imgUrl);
-                if (base64Img) {
-                    doc.addImage(base64Img, 'PNG', x, y, width, height);
-                }
-            } catch (error) {
-                console.log('Image loading error:', error);
-            }
-        };
-
-        // Page 1 (Job Offer Letter)
-        // Top border design - RED ONLY
-        doc.setFillColor(...redColor);
-        doc.rect(0, 0, pageWidth, 15, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.text("CANADA", pageWidth / 2, 10, { align: 'center' });
-
-        // Canada flag image
-        await addImage(canadaFlag, 25, 22, 15, 10);
-
-        // AG Foods logo
-        await addImage(agFoodsLogo, pageWidth - 45, 20, 30, 15);
-
-        // Profile picture
-        const profilePicUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random&size=200`;
-        await addImage(profilePicUrl, pageWidth - 65, 40, 40, 40);
-
-        // Generate QR Code for profile
-        const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=https://www.google.com/search?q=${encodeURIComponent(user.name)}`;
-        await addImage(qrCodeUrl, pageWidth - 70, 85, 15, 15);
-
-        // Schedule 1 Header
-        doc.setTextColor(0, 0, 0);
-        doc.setFontSize(11);
-        doc.setFont("helvetica", "bold");
-        doc.text("SCHEDULE 1", pageWidth / 2, 45, { align: 'center' });
-        doc.text("JOB OFFER LETTER", pageWidth / 2, 51, { align: 'center' });
-        
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(9);
-        doc.text("BETWEEN", pageWidth / 2, 57, { align: 'center' });
-        doc.setFont("helvetica", "bold");
-        doc.text("MEINHARDT FINE FOODS", pageWidth / 2, 62, { align: 'center' });
-        doc.setFont("helvetica", "normal");
-        doc.text("AND", pageWidth / 2, 68, { align: 'center' });
-
-        // Employee name with underline
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(10);
-        const nameY = 75;
-        const nameText = `${user.name}masloon22-12-2025`;
-        doc.text(nameText, pageWidth / 2, nameY, { align: 'center' });
-        doc.line(pageWidth / 2 - 50, nameY + 1, pageWidth / 2 + 50, nameY + 1);
-
-        // Employee details
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(9);
-        doc.text(user.name.toUpperCase(), pageWidth / 2, 82, { align: 'center' });
-        doc.text("Having Nationality of PAK", pageWidth / 2, 87, { align: 'center' });
-
-        // Passport number
-        doc.setFont("helvetica", "bold");
-        doc.text(`PASSPORT NUMBER-${passportNumber}`, pageWidth / 2, 95, { align: 'center' });
-
-        // Job details with bold and underline
-        let y = 105;
-        
-        // JOB TITLE AND PLACE OF WORK - Bold and Underline
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(9);
-        const jobTitleText = "1.  JOB TITLE AND PLACE OF WORK";
-        doc.text(jobTitleText, margin, y);
-        // Underline
-        const textWidth = doc.getTextWidth(jobTitleText);
-        doc.line(margin, y + 0.5, margin + textWidth, y + 0.5);
-        
-        y += 5;
-        doc.setFont("helvetica", "normal");
-        doc.text(`You Will employed in the position of ${user?.jobPosition || 'Food Packer'} Your normal place of Work Will`, margin + 5, y);
-        y += 4;
-        doc.text("be  CANADA MEINHARDT FINE FOODS", margin + 5, y);
-        
-        y += 8;
-        // CONTRACT TERM - Bold and Underline
-        doc.setFont("helvetica", "bold");
-        const contractTermText = "2.  CONTRACT TERM";
-        doc.text(contractTermText, margin, y);
-        const contractTextWidth = doc.getTextWidth(contractTermText);
-        doc.line(margin, y + 0.5, margin + contractTextWidth, y + 0.5);
-        
-        y += 5;
-        doc.setFont("helvetica", "normal");
-        doc.text("The term of this contract shall be limited or unlimited and Company shall employ you commencing", margin + 5, y);
-        y += 4;
-        doc.text("on or around the 1st September 2025.", margin + 5, y);
-
-        y += 8;
-        // REMUNERATION - Bold and Underline
-        doc.setFont("helvetica", "bold");
-        const remunerationText = "3.  REMUNERATION";
-        doc.text(remunerationText, margin, y);
-        const remunerationTextWidth = doc.getTextWidth(remunerationText);
-        doc.line(margin, y + 0.5, margin + remunerationTextWidth, y + 0.5);
-
-        // Remuneration table
-        y += 5;
-        const tableData = [
-            ["Gross Salary", "3500$Canadian Dollars"],
-            ["Period of contract", "2 Year's renewable"],
-            ["Accommodations", "Provided by the company"],
-            ["Meal allowance", "Provided by the company"],
-            ["Transportation Allowance", "Provided by the company"],
-            ["Food", "In accordance to Canadian labour Laws"],
-            ["Medical / Insurance", "In accordance to Canadian labour Laws"],
-            ["Leave Benefits", "In accordance Canadian labour Law"],
-            ["Over Time", "As per law"]
-        ];
-
-        const startX = margin + 5;
-        const col1Width = 60;
-        const col2Width = 70;
-        const rowHeight = 6;
-
-        tableData.forEach((row, i) => {
-            doc.text(row[0], startX, y);
-            doc.text(row[1], startX + col1Width, y);
-            y += rowHeight;
-        });
-
-        // Hours of work - Bold and Underline
-        y += 5;
-        doc.setFont("helvetica", "bold");
-        const hoursTextTitle = "4.  Hours of Work";
-        doc.text(hoursTextTitle, margin, y);
-        const hoursTextWidth = doc.getTextWidth(hoursTextTitle);
-        doc.line(margin, y + 0.5, margin + hoursTextWidth, y + 0.5);
-        
-        y += 5;
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(8);
-        
-        const hoursText = user?.description || "Your hours shall be eight (8) hours per day up to 6 days per week. With a one (1) hour lunch break, you are however expected to work such hours As may be necessary to adequately perform your duties.";
-        const splitHours = doc.splitTextToSize(hoursText, pageWidth - 2 * margin);
-        doc.text(splitHours, margin, y);
-        y += splitHours.length * 4;
-
-        // Signature area with approve stamps
-        y = pageHeight - 60;
-        
-        // Left side - stamp01
-        await addImage(stamp01, margin, y - 20, 25, 25);
-        
-        doc.setFontSize(9);
-        doc.setFont("helvetica", "bold");
-        doc.text("SIGNATURE__________", margin + 35, y);
-        y += 5;
-        doc.text("THUMB", margin + 35, y);
-        
-        // Right side - stamp02
-        await addImage(stamp02, pageWidth - margin - 60, y - 25, 25, 25);
-        
-        doc.text("SIGNATURE__________", pageWidth - margin - 80, y);
-        y -= 5;
-        doc.text("THUMB", pageWidth - margin - 80, y);
-
-        // Bottom border - RED ONLY
-        doc.setFillColor(...redColor);
-        doc.rect(0, pageHeight - 15, pageWidth, 15, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.text("CANADA", pageWidth / 2, pageHeight - 7, { align: 'center' });
-
-        // Page 2 (Terms and Conditions)
-        doc.addPage();
-
-        // Top border design - RED ONLY
-        doc.setFillColor(...redColor);
-        doc.rect(0, 0, pageWidth, 15, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.text("CANADA", pageWidth / 2, 10, { align: 'center' });
-
-        // Canada flag image
-        await addImage(canadaFlag, 25, 20, 15, 10);
-        
-        doc.setFontSize(10);
-        doc.setTextColor(0, 0, 0);
-        doc.setFont("helvetica", "bold");
-        doc.text("CANADA", 42, 25);
-
-        // AG Foods logo
-        await addImage(agFoodsLogo, pageWidth - 45, 25, 30, 15);
-
-        // Header right
-        doc.setFontSize(8);
-        doc.setFont("helvetica", "normal");
-        doc.text("3202 Garanville ST Vascuver", pageWidth - 70, 18);
-        doc.text("BC V6H 3R8 CANADA", pageWidth - 70, 22);
-
-        // Main content
-        doc.setTextColor(0, 0, 0);
-        doc.setFontSize(10);
-        doc.setFont("helvetica", "bold");
-        
-        let y2 = 50;
-        
-        // (6) Non-Competition and Confidentiality - Bold and Underline
-        const nonCompText = "(6) Non-Competition and Confidentiality";
-        doc.text(nonCompText, margin, y2);
-        const nonCompWidth = doc.getTextWidth(nonCompText);
-        doc.line(margin, y2 + 0.5, margin + nonCompWidth, y2 + 0.5);
-        
-        y2 += 8;
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(9);
-        const text1 = "In the employment or any time thereafter you are not permitted to access any confidential information that is the property of the Employer. You are not permitted to disclose this information outside the Company.";
-        const splitText1 = doc.splitTextToSize(text1, pageWidth - 2 * margin);
-        doc.text(splitText1, margin, y2);
-        y2 += splitText1.length * 5;
-
-        y2 += 3;
-        const text2 = "During your time of Employment with the Employer, you may not engage in any work for another Employer that is related or in competition with the Company. You will fully disclose to your Employer any other Employment relationships you have and you will promptly notify the employer should other employment provide that job is close to or shares from your duties fulfill your duties: and (b) you are not entering another organization in competing with the employer.";
-        const splitText2 = doc.splitTextToSize(text2, pageWidth - 2 * margin);
-        doc.text(splitText2, margin, y2);
-        y2 += splitText2.length * 5;
-
-        y2 += 3;
-        const text3 = "It is further acknowledged that this information is proprietary or confidential in nature and you will not disclose this information to any of the Employer's clients for a period of at least 03 Years.";
-        const splitText3 = doc.splitTextToSize(text3, pageWidth - 2 * margin);
-        doc.text(splitText3, margin, y2);
-        y2 += splitText3.length * 5;
-
-        y2 += 8;
-        // (6) Entirety - Bold and Underline
-        doc.setFont("helvetica", "bold");
-        const entiretyText = "(6) Entirety";
-        doc.text(entiretyText, margin, y2);
-        const entiretyWidth = doc.getTextWidth(entiretyText);
-        doc.line(margin, y2 + 0.5, margin + entiretyWidth, y2 + 0.5);
-        
-        y2 += 6;
-        doc.setFont("helvetica", "normal");
-        const text4 = "This contract represents the entire agreement between the two parties and supercedes any previous written or oral agreement. This agreement may be modified at any time provided the written consent of both the Employer and the Employee.";
-        const splitText4 = doc.splitTextToSize(text4, pageWidth - 2 * margin);
-        doc.text(splitText4, margin, y2);
-        y2 += splitText4.length * 5;
-
-        y2 += 8;
-        // (7) Legal Authorization - Bold and Underline
-        doc.setFont("helvetica", "bold");
-        const legalAuthText = "(7) Legal Authorization";
-        doc.text(legalAuthText, margin, y2);
-        const legalAuthWidth = doc.getTextWidth(legalAuthText);
-        doc.line(margin, y2 + 0.5, margin + legalAuthWidth, y2 + 0.5);
-        
-        y2 += 6;
-        doc.setFont("helvetica", "normal");
-        const text5 = "The Employee agrees that he or she shall be authorized to work in MEINHARDT FINE FOODS and can provide proof of this with legal documentation. This documentation will be obtain by the Employer for legal records.";
-        const splitText5 = doc.splitTextToSize(text5, pageWidth - 2 * margin);
-        doc.text(splitText5, margin, y2);
-        y2 += splitText5.length * 5;
-
-        y2 += 8;
-        // (8) Severability - Bold and Underline
-        doc.setFont("helvetica", "bold");
-        const severabilityText = "(8) Severability";
-        doc.text(severabilityText, margin, y2);
-        const severabilityWidth = doc.getTextWidth(severabilityText);
-        doc.line(margin, y2 + 0.5, margin + severabilityWidth, y2 + 0.5);
-        
-        y2 += 6;
-        doc.setFont("helvetica", "normal");
-        const text6 = "The parties agreed that, if any portion of this contract is found to be void or unenforceable, it shall be struck from the contract and the remaining provisions of the contract shall remain valid and enforceable.";
-        const splitText6 = doc.splitTextToSize(text6, pageWidth - 2 * margin);
-        doc.text(splitText6, margin, y2);
-        y2 += splitText6.length * 5;
-
-        y2 += 8;
-        // (8) Jurisdiction - Bold and Underline
-        doc.setFont("helvetica", "bold");
-        const jurisdictionText = "(8) Jurisdiction";
-        doc.text(jurisdictionText, margin, y2);
-        const jurisdictionWidth = doc.getTextWidth(jurisdictionText);
-        doc.line(margin, y2 + 0.5, margin + jurisdictionWidth, y2 + 0.5);
-        
-        y2 += 6;
-        doc.setFont("helvetica", "normal");
-        const text7 = "This contract shall be governed, interpreted and construed in accordance with the laws of MEINHARDT FINE FOODS. In return and you agree that the Employer the Employee has executed this contract in the appropriate through the authorization of official agent and with the consent of the Employee given here in writing.";
-        const splitText7 = doc.splitTextToSize(text7, pageWidth - 2 * margin);
-        doc.text(splitText7, margin, y2);
-        y2 += splitText7.length * 5;
-
-        // Signatures
-        y2 += 15;
-        doc.setFontSize(8);
-        doc.text("General Manager Signature", margin + 10, y2);
-        doc.text("Employment signature", pageWidth - margin - 50, y2);
-        
-        y2 += 8;
-        doc.setFont("helvetica", "bold");
-        doc.text("Grayson Jackson", margin + 10, y2);
-
-        // Bottom border - RED ONLY
-        doc.setFillColor(...redColor);
-        doc.rect(0, pageHeight - 15, pageWidth, 15, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.text("CANADA", pageWidth / 2, pageHeight - 7, { align: 'center' });
-
-        // Save PDF
-        doc.save(`${user.name.replace(/\s+/g, '_')}_JobOffer.pdf`);
+    // Function to add images
+    const addImage = async (imgUrl, x, y, width, height) => {
+      try {
+        const base64Img = await getBase64Image(imgUrl);
+        if (base64Img) {
+          doc.addImage(base64Img, 'PNG', x, y, width, height);
+        }
+      } catch (error) {
+        console.log('Image loading error:', error);
+      }
     };
+
+    // Page 1 (Job Offer Letter)
+    // Top border design - RED ONLY
+    doc.setFillColor(...redColor);
+    doc.rect(0, 0, pageWidth, 15, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("CANADA", pageWidth / 2, 10, { align: 'center' });
+
+    // Canada flag image
+    await addImage(canadaFlag, 25, 22, 15, 10);
+
+    // AG Foods logo
+    await addImage(agFoodsLogo, pageWidth - 45, 20, 30, 15);
+
+    // Profile picture
+    const profilePicUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random&size=200`;
+    await addImage(profilePicUrl, pageWidth - 65, 40, 40, 40);
+
+    // Generate QR Code for profile
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=https://www.google.com/search?q=${encodeURIComponent(user.name)}`;
+    await addImage(qrCodeUrl, pageWidth - 70, 85, 15, 15);
+
+    // Schedule 1 Header
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(11);
+    doc.setFont("helvetica", "bold");
+    doc.text("SCHEDULE 1", pageWidth / 2, 45, { align: 'center' });
+    doc.text("JOB OFFER LETTER", pageWidth / 2, 51, { align: 'center' });
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.text("BETWEEN", pageWidth / 2, 57, { align: 'center' });
+    doc.setFont("helvetica", "bold");
+    doc.text("MEINHARDT FINE FOODS", pageWidth / 2, 62, { align: 'center' });
+    doc.setFont("helvetica", "normal");
+    doc.text("AND", pageWidth / 2, 68, { align: 'center' });
+
+    // Employee name with underline
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(10);
+    const nameY = 75;
+    const nameText = `${user.name}masloon22-12-2025`;
+    doc.text(nameText, pageWidth / 2, nameY, { align: 'center' });
+    doc.line(pageWidth / 2 - 50, nameY + 1, pageWidth / 2 + 50, nameY + 1);
+
+    // Employee details
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.text(user.name.toUpperCase(), pageWidth / 2, 82, { align: 'center' });
+    doc.text("Having Nationality of PAK", pageWidth / 2, 87, { align: 'center' });
+
+    // Passport number
+    doc.setFont("helvetica", "bold");
+    doc.text(`PASSPORT NUMBER-${passportNumber}`, pageWidth / 2, 95, { align: 'center' });
+
+    // Job details with bold and underline
+    let y = 105;
+
+    // JOB TITLE AND PLACE OF WORK - Bold and Underline
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(9);
+    const jobTitleText = "1.  JOB TITLE AND PLACE OF WORK";
+    doc.text(jobTitleText, margin, y);
+    // Underline
+    const textWidth = doc.getTextWidth(jobTitleText);
+    doc.line(margin, y + 0.5, margin + textWidth, y + 0.5);
+
+    y += 5;
+    doc.setFont("helvetica", "normal");
+    doc.text(`You Will employed in the position of ${user?.jobPosition || 'Food Packer'} Your normal place of Work Will`, margin + 5, y);
+    y += 4;
+    doc.text("be  CANADA MEINHARDT FINE FOODS", margin + 5, y);
+
+    y += 8;
+    // CONTRACT TERM - Bold and Underline
+    doc.setFont("helvetica", "bold");
+    const contractTermText = "2.  CONTRACT TERM";
+    doc.text(contractTermText, margin, y);
+    const contractTextWidth = doc.getTextWidth(contractTermText);
+    doc.line(margin, y + 0.5, margin + contractTextWidth, y + 0.5);
+
+    y += 5;
+    doc.setFont("helvetica", "normal");
+    doc.text("The term of this contract shall be limited or unlimited and Company shall employ you commencing", margin + 5, y);
+    y += 4;
+    doc.text("on or around the 1st September 2025.", margin + 5, y);
+
+    y += 8;
+    // REMUNERATION - Bold and Underline
+    doc.setFont("helvetica", "bold");
+    const remunerationText = "3.  REMUNERATION";
+    doc.text(remunerationText, margin, y);
+    const remunerationTextWidth = doc.getTextWidth(remunerationText);
+    doc.line(margin, y + 0.5, margin + remunerationTextWidth, y + 0.5);
+
+    // Remuneration table
+    y += 5;
+    const tableData = [
+      ["Gross Salary", "3500$Canadian Dollars"],
+      ["Period of contract", "2 Year's renewable"],
+      ["Accommodations", "Provided by the company"],
+      ["Meal allowance", "Provided by the company"],
+      ["Transportation Allowance", "Provided by the company"],
+      ["Food", "In accordance to Canadian labour Laws"],
+      ["Medical / Insurance", "In accordance to Canadian labour Laws"],
+      ["Leave Benefits", "In accordance Canadian labour Law"],
+      ["Over Time", "As per law"]
+    ];
+
+    const startX = margin + 5;
+    const col1Width = 60;
+    const col2Width = 70;
+    const rowHeight = 6;
+
+    tableData.forEach((row, i) => {
+      doc.text(row[0], startX, y);
+      doc.text(row[1], startX + col1Width, y);
+      y += rowHeight;
+    });
+
+    // Hours of work - Bold and Underline
+    y += 5;
+    doc.setFont("helvetica", "bold");
+    const hoursTextTitle = "4.  Hours of Work";
+    doc.text(hoursTextTitle, margin, y);
+    const hoursTextWidth = doc.getTextWidth(hoursTextTitle);
+    doc.line(margin, y + 0.5, margin + hoursTextWidth, y + 0.5);
+
+    y += 5;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(8);
+
+    const hoursText = user?.description || "Your hours shall be eight (8) hours per day up to 6 days per week. With a one (1) hour lunch break, you are however expected to work such hours As may be necessary to adequately perform your duties.";
+    const splitHours = doc.splitTextToSize(hoursText, pageWidth - 2 * margin);
+    doc.text(splitHours, margin, y);
+    y += splitHours.length * 4;
+
+    // Signature area with approve stamps
+    y = pageHeight - 60;
+
+    // Left side - stamp01
+    await addImage(stamp01, margin, y - 20, 25, 25);
+
+    doc.setFontSize(9);
+    doc.setFont("helvetica", "bold");
+    doc.text("SIGNATURE__________", margin + 35, y);
+    y += 5;
+    doc.text("THUMB", margin + 35, y);
+
+    // Right side - stamp02
+    await addImage(stamp02, pageWidth - margin - 60, y - 25, 25, 25);
+
+    doc.text("SIGNATURE__________", pageWidth - margin - 80, y);
+    y -= 5;
+    doc.text("THUMB", pageWidth - margin - 80, y);
+
+    // Bottom border - RED ONLY
+    doc.setFillColor(...redColor);
+    doc.rect(0, pageHeight - 15, pageWidth, 15, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("CANADA", pageWidth / 2, pageHeight - 7, { align: 'center' });
+
+    // Page 2 (Terms and Conditions)
+    doc.addPage();
+
+    // Top border design - RED ONLY
+    doc.setFillColor(...redColor);
+    doc.rect(0, 0, pageWidth, 15, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("CANADA", pageWidth / 2, 10, { align: 'center' });
+
+    // Canada flag image
+    await addImage(canadaFlag, 25, 20, 15, 10);
+
+    doc.setFontSize(10);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont("helvetica", "bold");
+    doc.text("CANADA", 42, 25);
+
+    // AG Foods logo
+    await addImage(agFoodsLogo, pageWidth - 45, 25, 30, 15);
+
+    // Header right
+    doc.setFontSize(8);
+    doc.setFont("helvetica", "normal");
+    doc.text("3202 Garanville ST Vascuver", pageWidth - 70, 18);
+    doc.text("BC V6H 3R8 CANADA", pageWidth - 70, 22);
+
+    // Main content
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+
+    let y2 = 50;
+
+    // (6) Non-Competition and Confidentiality - Bold and Underline
+    const nonCompText = "(6) Non-Competition and Confidentiality";
+    doc.text(nonCompText, margin, y2);
+    const nonCompWidth = doc.getTextWidth(nonCompText);
+    doc.line(margin, y2 + 0.5, margin + nonCompWidth, y2 + 0.5);
+
+    y2 += 8;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    const text1 = "In the employment or any time thereafter you are not permitted to access any confidential information that is the property of the Employer. You are not permitted to disclose this information outside the Company.";
+    const splitText1 = doc.splitTextToSize(text1, pageWidth - 2 * margin);
+    doc.text(splitText1, margin, y2);
+    y2 += splitText1.length * 5;
+
+    y2 += 3;
+    const text2 = "During your time of Employment with the Employer, you may not engage in any work for another Employer that is related or in competition with the Company. You will fully disclose to your Employer any other Employment relationships you have and you will promptly notify the employer should other employment provide that job is close to or shares from your duties fulfill your duties: and (b) you are not entering another organization in competing with the employer.";
+    const splitText2 = doc.splitTextToSize(text2, pageWidth - 2 * margin);
+    doc.text(splitText2, margin, y2);
+    y2 += splitText2.length * 5;
+
+    y2 += 3;
+    const text3 = "It is further acknowledged that this information is proprietary or confidential in nature and you will not disclose this information to any of the Employer's clients for a period of at least 03 Years.";
+    const splitText3 = doc.splitTextToSize(text3, pageWidth - 2 * margin);
+    doc.text(splitText3, margin, y2);
+    y2 += splitText3.length * 5;
+
+    y2 += 8;
+    // (6) Entirety - Bold and Underline
+    doc.setFont("helvetica", "bold");
+    const entiretyText = "(6) Entirety";
+    doc.text(entiretyText, margin, y2);
+    const entiretyWidth = doc.getTextWidth(entiretyText);
+    doc.line(margin, y2 + 0.5, margin + entiretyWidth, y2 + 0.5);
+
+    y2 += 6;
+    doc.setFont("helvetica", "normal");
+    const text4 = "This contract represents the entire agreement between the two parties and supercedes any previous written or oral agreement. This agreement may be modified at any time provided the written consent of both the Employer and the Employee.";
+    const splitText4 = doc.splitTextToSize(text4, pageWidth - 2 * margin);
+    doc.text(splitText4, margin, y2);
+    y2 += splitText4.length * 5;
+
+    y2 += 8;
+    // (7) Legal Authorization - Bold and Underline
+    doc.setFont("helvetica", "bold");
+    const legalAuthText = "(7) Legal Authorization";
+    doc.text(legalAuthText, margin, y2);
+    const legalAuthWidth = doc.getTextWidth(legalAuthText);
+    doc.line(margin, y2 + 0.5, margin + legalAuthWidth, y2 + 0.5);
+
+    y2 += 6;
+    doc.setFont("helvetica", "normal");
+    const text5 = "The Employee agrees that he or she shall be authorized to work in MEINHARDT FINE FOODS and can provide proof of this with legal documentation. This documentation will be obtain by the Employer for legal records.";
+    const splitText5 = doc.splitTextToSize(text5, pageWidth - 2 * margin);
+    doc.text(splitText5, margin, y2);
+    y2 += splitText5.length * 5;
+
+    y2 += 8;
+    // (8) Severability - Bold and Underline
+    doc.setFont("helvetica", "bold");
+    const severabilityText = "(8) Severability";
+    doc.text(severabilityText, margin, y2);
+    const severabilityWidth = doc.getTextWidth(severabilityText);
+    doc.line(margin, y2 + 0.5, margin + severabilityWidth, y2 + 0.5);
+
+    y2 += 6;
+    doc.setFont("helvetica", "normal");
+    const text6 = "The parties agreed that, if any portion of this contract is found to be void or unenforceable, it shall be struck from the contract and the remaining provisions of the contract shall remain valid and enforceable.";
+    const splitText6 = doc.splitTextToSize(text6, pageWidth - 2 * margin);
+    doc.text(splitText6, margin, y2);
+    y2 += splitText6.length * 5;
+
+    y2 += 8;
+    // (8) Jurisdiction - Bold and Underline
+    doc.setFont("helvetica", "bold");
+    const jurisdictionText = "(8) Jurisdiction";
+    doc.text(jurisdictionText, margin, y2);
+    const jurisdictionWidth = doc.getTextWidth(jurisdictionText);
+    doc.line(margin, y2 + 0.5, margin + jurisdictionWidth, y2 + 0.5);
+
+    y2 += 6;
+    doc.setFont("helvetica", "normal");
+    const text7 = "This contract shall be governed, interpreted and construed in accordance with the laws of MEINHARDT FINE FOODS. In return and you agree that the Employer the Employee has executed this contract in the appropriate through the authorization of official agent and with the consent of the Employee given here in writing.";
+    const splitText7 = doc.splitTextToSize(text7, pageWidth - 2 * margin);
+    doc.text(splitText7, margin, y2);
+    y2 += splitText7.length * 5;
+
+    // Signatures
+    y2 += 15;
+    doc.setFontSize(8);
+    doc.text("General Manager Signature", margin + 10, y2);
+    doc.text("Employment signature", pageWidth - margin - 50, y2);
+
+    y2 += 8;
+    doc.setFont("helvetica", "bold");
+    doc.text("Grayson Jackson", margin + 10, y2);
+
+    // Bottom border - RED ONLY
+    doc.setFillColor(...redColor);
+    doc.rect(0, pageHeight - 15, pageWidth, 15, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("CANADA", pageWidth / 2, pageHeight - 7, { align: 'center' });
+
+    // Save PDF
+    doc.save(`${user.name.replace(/\s+/g, '_')}_JobOffer.pdf`);
+  };
   const handlePrint = () => {
     window.print();
   };
 
+  const getApplicationUrl = async() => {
+   try {
+    const response = await fetch(`https://agfoodbackend-production.up.railway.app/applications`);
+    const url = await response.json();
+    const filtered = url.find(app => app.passportNumber === passportNumber);
+    setGeneratingProfile(filtered?.profilePictureURL || '');
+    console.log('Generated Application URL:', url, filtered?.profilePictureURL);
+   } catch (error) {
+    console.error('Error generating application URL:', error);
+   }
+  }
+
+  useEffect(() => {
+    getApplicationUrl();
+  }, []);
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -787,7 +803,7 @@ export default function OfferLetterPage() {
       </div>
     );
   }
-
+console.log('Application Data:', applicationData, applicationData.profilePictureURL,applicationData?.photoURL);
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4">
       {/* Action Buttons */}
@@ -810,12 +826,12 @@ export default function OfferLetterPage() {
 
       {/* Main Offer Letter Container */}
       <div className="max-w-5xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden">
-        
+
         {/* Header with Logo and Company Info */}
         <div className="bg-gradient-to-r from-green-900 to-green-800 text-white p-8 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full -ml-24 -mb-24"></div>
-          
+
           <div className="relative z-10 flex items-start justify-between">
             {/* Logo and Company Name */}
             <div className="flex items-center gap-4">
@@ -835,14 +851,18 @@ export default function OfferLetterPage() {
                 {/* <div className="w-full h-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center text-3xl">
                   👤
                 </div> */}
-                 <img src={profile} alt="Applicant" className="w-full h-full object-cover rounded-lg" />
+                <img
+                src={profile}
+                 // src={`https://agfoodbackend-production.up.railway.app/${generatingProfile}` ?? profile}
+                  // src={`https://agfoodbackend-production.up.railway.app/${applicationData?.profilePictureURL}`}
+                  alt="Applicant" className="w-full h-full object-cover rounded-lg" />
               </div>
-              
+
               {/* QR Code */}
               <div className="bg-white p-2 rounded-lg shadow-lg">
-                <img 
-                  src={qrCodeUrl} 
-                  alt="Scan to open in Chrome" 
+                <img
+                  src={qrCodeUrl}
+                  alt="Scan to open in Chrome"
                   className="w-24 h-24"
                 />
                 <p className="text-xs text-center mt-1 text-gray-700 font-medium">Scan for Chrome</p>
