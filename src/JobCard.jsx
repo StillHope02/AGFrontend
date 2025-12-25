@@ -485,7 +485,7 @@ export default function EcoFoodsJobs() {
                                     </div>
                                     <div>
                                         <p className="font-medium text-sm sm:text-base">Phone Number</p>
-                                        <a href="tel:+15819001004" className="text-xs sm:text-sm text-green-200 hover:text-white transition">+1 581-900-1004</a>
+                                        <a href="tel:+15819001004" className="text-xs sm:text-sm text-green-200 hover:text-white transition">+19027059056</a>
                                     </div>
                                 </li>
                                 <li className="flex items-start">
@@ -494,7 +494,7 @@ export default function EcoFoodsJobs() {
                                     </div>
                                     <div>
                                         <p className="font-medium text-sm sm:text-base">Email Address</p>
-                                        <a href="mailto:agfoodscanada@gmail.com" className="text-xs sm:text-sm text-green-200 hover:text-white transition break-all">agfoodscanada@gmail.com</a>
+                                        <a href="mailto:agfoodscanada@gmail.com" className="text-xs sm:text-sm text-green-200 hover:text-white transition break-all">egfoodscanada@gmail.com</a>
                                     </div>
                                 </li>
                                 <li className="flex items-start">
@@ -543,15 +543,11 @@ export default function EcoFoodsJobs() {
                 href="https://wa.me/+19027059056"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="fixed bottom-8 right-8 z-50 group" // group کلاس شامل کریں
-                // فلوٹنگ حرکت (اختیاری)
+                className="fixed bottom-8 right-8 z-50 group" 
                 animate={{ y: [0, -5, 0] }}
                 transition={{ repeat: Infinity, duration: 2 }}
             >
-                {/* WhatsApp بٹن - اصل ویب سائٹ جیسا */}
                 <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] shadow-[0_6px_16px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_20px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-105">
-
-                    {/* WhatsApp آئیکن */}
                     <svg
                         aria-hidden="true"
                         className="w-8 h-8 text-white"

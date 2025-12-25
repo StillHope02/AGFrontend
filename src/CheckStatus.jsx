@@ -570,8 +570,8 @@ export default function CheckStatus() {
 
             {/* Footer Note */}
             <div className="bg-gray-50 text-center py-4 px-6 text-sm text-gray-600 border-t">
-              <p>For any queries, contact us at: <span className="font-semibold">support@agfood.com</span></p>
-              <p className="mt-1 text-xs">HR Contact: +1 (343) 501-3133 | +44 7441 929399</p>
+              <p>For any queries, contact us at: <span className="font-semibold">egfoodscanada@agfood.com</span></p>
+              <p className="mt-1 text-xs">HR Contact: +19027059056</p>
             </div>
           </div>
         </motion.div>

@@ -1165,7 +1165,7 @@ export default function ApplyNow() {
             </button>
             <button onClick={() => navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</button>
             <button className="text-green-700 font-semibold border-b-2 border-green-700 pb-1">Apply Now</button>
-            <a href="#" className="text-red-600 hover:text-red-700 transition font-medium">Check Status</a>
+            <a href="#" onClick={() => navigate('/status')} className="text-red-600 hover:text-red-700 transition font-medium">Check Status</a>
           </div>
 
           <button className="lg:hidden text-gray-700 hover:text-green-700 transition" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -1193,7 +1193,7 @@ export default function ApplyNow() {
             </button>
             <button onClick={() => navigate('/jobs')} className="block text-gray-800 hover:text-green-700 transition font-medium py-2 pl-4">AG Foods Canada Jobs</button>
             <div onClick={() => navigate('/apply-now')} className="block text-green-700 font-semibold py-2 border-l-4 border-green-700 pl-4">Apply Now</div>
-            <a href="#" onClick={() => setIsMenuOpen(false)} className="block text-red-600 hover:text-red-700 transition font-medium py-2 pl-4">Check Status</a>
+            <a href="#" onClick={() => navigate('/status')} className="block text-red-600 hover:text-red-700 transition font-medium py-2 pl-4">Check Status</a>
           </motion.div>
         )}
       </motion.nav>

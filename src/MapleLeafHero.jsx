@@ -1078,7 +1078,7 @@ export default function MapleLeafHero() {
                   </div>
                   <div>
                     <p className="font-medium">Phone Number</p>
-                    <a href="tel:+447454526864" className="text-green-200 hover:text-white transition">+447454526864</a>
+                    <a href="tel:+447454526864" className="text-green-200 hover:text-white transition">+19027059056</a>
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -1089,7 +1089,7 @@ export default function MapleLeafHero() {
                   </div>
                   <div>
                     <p className="font-medium">Email Address</p>
-                    <a href="mailto:ecofoodscanada3@gmail.com" className="text-green-200 hover:text-white transition">ecofoodscanada3@gmail.com</a>
+                    <a href="mailto:ecofoodscanada3@gmail.com" className="text-green-200 hover:text-white transition">egfoodscanada@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex items-start">
