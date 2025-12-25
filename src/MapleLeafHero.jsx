@@ -1131,7 +1131,7 @@ export default function MapleLeafHero() {
 
       {/* WhatsApp Button */}
       <motion.a
-        href="https://wa.me/0019027059056"
+        href="https://wa.me/+19027059056"
         rel="noopener noreferrer"
         target="_blank"
         className="fixed bottom-8 right-8 z-50 group" // group کلاس شامل کریں
