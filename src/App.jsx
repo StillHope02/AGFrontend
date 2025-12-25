@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react'
-import MapleLeafHero from './MapleLeafHero'
-import ApplyNow from './ApplyNow'
+// import MapleLeafHero from './MapleLeafHero'
+// import ApplyNow from './ApplyNow'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 const MapleLeafHero = lazy(() => import('./MapleLeafHero'))
 const ApplyNow = lazy(() => import('./ApplyNow'))
