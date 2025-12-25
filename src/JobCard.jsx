@@ -8,6 +8,18 @@ import electrician from './assets/electrician.jpg';
 import logistic from './assets/logistic.jpg';
 import warehouse from './assets/warehouse.jpg';
 import packing from './assets/packing.jpg';
+import security from './assets/securityOfficer.jpg';
+import maintenance from './assets/maintenance.jpg';
+import plumber from './assets/plumber.jpg';
+import sales from './assets/saleAssociate.jpg';
+import foodproduction from './assets/productionWorker.jpg';
+import foodPacking from './assets/foodPacking.jpg';
+import helperstaff from './assets/helperStaff.jpg';
+import lightVehicle from './assets/lightVehicle.jpg';
+import heavyVehicle from './assets/heavyVehicle.jpg';
+import cashier from './assets/cashier.jpg';
+import supervisor from './assets/supervisor.jpg';
+import manager from './assets/manager.jpg';
 
 const JobCard = ({ title, salary, description, image, delay }) => {
     const navigate = useNavigate();
@@ -33,6 +45,8 @@ const JobCard = ({ title, salary, description, image, delay }) => {
                     <img
                         src={image}
                         alt={title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-48 sm:h-56 object-cover rounded-xl"
                     />
                 </div>
@@ -80,25 +94,25 @@ export default function EcoFoodsJobs() {
             title: "Heavy Vehicle Driver",
             salary: "$26–$30/hour",
             description: "Operate long-haul transport trucks. Valid Class 1 / AZ license required.",
-            image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7"
+            image: `${heavyVehicle}`
         },
         {
             title: "Light Vehicle Driver",
             salary: "$20–$24/hour",
             description: "Local deliveries with company vehicles. Clean driving record required.",
-            image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55"
+            image: `${lightVehicle}`
         },
         {
             title: "Helper Staff",
             salary: "$17–$19/hour",
             description: "Support factory operations, lifting, cleaning, and assistance tasks.",
-            image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12"
+            image: `${helperstaff}`
         },
         {
             title: "Fruit Packaging Worker",
             salary: "$18–$22/hour",
             description: "Sorting, packaging, and quality checking of fresh fruits.",
-            image: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5"
+            image: `${foodPacking}`
         },
         {
             title: "Packaging Specialist",
@@ -110,7 +124,7 @@ export default function EcoFoodsJobs() {
             title: "Food Production Worker",
             salary: "$18–$22/hour",
             description: "Work on food production lines following hygiene and safety rules.",
-            image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d"
+            image: `${foodproduction}`
         },
         {
             title: "Warehouse Associate",
@@ -128,19 +142,19 @@ export default function EcoFoodsJobs() {
             title: "Security Officer",
             salary: "$20–$25/hour",
             description: "Ensure safety of facilities, staff, and company assets.",
-            image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c"
+            image: `${security}`
         },
         {
             title: "Maintenance Technician",
             salary: "$24–$30/hour",
             description: "Maintain machinery, perform repairs, and preventive maintenance.",
-            image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc"
+            image: `${maintenance}`
         },
         {
             title: "Plumber",
             salary: "$25–$32/hour",
             description: "Install and repair water supply and drainage systems.",
-            image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952"
+            image: `${plumber}`
         },
         {
             title: "Electrician",
@@ -152,7 +166,7 @@ export default function EcoFoodsJobs() {
             title: "Sales Associate",
             salary: "$18–$22/hour",
             description: "Customer handling, sales support, and product guidance.",
-            image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+            image: `${sales}`
         },
         {
             title: "Logistics Coordinator",
@@ -165,47 +179,27 @@ export default function EcoFoodsJobs() {
             salary: "$17–$20/hour",
             description: "Accurate data entry, documentation, and record management.",
             image: `${dataentry}`
-        }
-    ];
+        },
+        {
+            title: "Cashier",
+            salary: "$17–$21/hour",
+            description: "Handle billing, customer payments, and daily cash reconciliation.",
+            image: cashier
+        },
+        {
+            title: "Supervisor",
+            salary: "$22–$28/hour",
+            description: "Supervise staff, manage shifts, and ensure operational efficiency.",
+            image: supervisor
+        },
+        {
+            title: "Operations Manager",
+            salary: "$30–$40/hour",
+            description: "Oversee daily operations, staff performance, and production targets.",
+            image: manager
+        },
 
-    // const jobs = [
-    //     {
-    //         title: "Heavy Vehicle Driver",
-    //         salary: "$26–$30/hour",
-    //         description: "Operate transport trucks between provinces. Class 1 or AZ license required.",
-    //         image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070"
-    //     },
-    //     {
-    //         title: "Light Vehicle Driver",
-    //         salary: "$20–$24/hour",
-    //         description: "Handle short-distance deliveries. Must have a valid license and clean driving record.",
-    //         image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=2065"
-    //     },
-    //     {
-    //         title: "Helper Staff",
-    //         salary: "$17–$19/hour",
-    //         description: "Assist production teams with cleaning, lifting, and general support tasks.",
-    //         image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070"
-    //     },
-    //     {
-    //         title: "Fruit Packaging",
-    //         salary: "$18–$22/hour",
-    //         description: "Sort, inspect, and package fresh fruits. Attention to detail required.",
-    //         image: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?q=80&w=2076"
-    //     },
-    //     {
-    //         title: "Factory Cleaner",
-    //         salary: "$17–$20/hour",
-    //         description: "Maintain cleanliness and hygiene standards in production facilities.",
-    //         image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=2070"
-    //     },
-    //     {
-    //         title: "Vegetable Sorter",
-    //         salary: "$18–$21/hour",
-    //         description: "Sort and grade vegetables according to quality standards.",
-    //         image: "https://images.unsplash.com/photo-1597362925123-77861d3fbac7?q=80&w=2070"
-    //     },
-    // ];
+    ];
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -241,7 +235,7 @@ export default function EcoFoodsJobs() {
                             <a href="#about-us" onClick={goToAboutUs} className="text-gray-700 hover:text-green-600 transition-colors font-medium">About Us</a>
                             {/* <a href="#jobs" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">AG Foods Canada Jobs</a> */}
                             <a href="#apply" onClick={() => navigate('/apply-now')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">Apply Now</a>
-                            <a href="#status" onClick={() => navigate("/status")}  className="text-red-600 hover:text-red-700 transition-colors font-medium">Check Status</a>
+                            <a href="#status" onClick={() => navigate("/status")} className="text-red-600 hover:text-red-700 transition-colors font-medium">Check Status</a>
                         </div>
 
                         <motion.button
@@ -275,7 +269,7 @@ export default function EcoFoodsJobs() {
                                 <a href="#about-us" onClick={goToAboutUs} className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">About Us</a>
                                 {/* <a href="#jobs" className="text-green-600 bg-green-50 font-semibold py-3 px-4 rounded-lg">AG Foods Canada Jobs</a> */}
                                 <a href="#apply" onClick={() => navigate("/apply-now")} className="text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors font-medium py-3 px-4 rounded-lg">Apply Now</a>
-                                <a href="#status" onClick={() => navigate("/status")}  className="text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors font-medium py-3 px-4 rounded-lg">Check Status</a>
+                                <a href="#status" onClick={() => navigate("/status")} className="text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors font-medium py-3 px-4 rounded-lg">Check Status</a>
                                 <div className="mt-4 pt-4 border-t border-gray-200">
                                     <button onClick={() => navigate("/apply-now")} className="w-full bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors">
                                         Apply Now
@@ -539,30 +533,30 @@ export default function EcoFoodsJobs() {
 
             {/* WhatsApp Button */}
             <motion.a
-                    href="https://wa.me/0019027059056"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="fixed bottom-8 right-8 z-50 group" // group کلاس شامل کریں
-                    // فلوٹنگ حرکت (اختیاری)
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                  >
-                    {/* WhatsApp بٹن - اصل ویب سائٹ جیسا */}
-                    <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] shadow-[0_6px_16px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_20px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-105">
-            
-                      {/* WhatsApp آئیکن */}
-                      <svg
+                href="https://wa.me/0019027059056"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="fixed bottom-8 right-8 z-50 group" // group کلاس شامل کریں
+                // فلوٹنگ حرکت (اختیاری)
+                animate={{ y: [0, -5, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+            >
+                {/* WhatsApp بٹن - اصل ویب سائٹ جیسا */}
+                <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] shadow-[0_6px_16px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_20px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-105">
+
+                    {/* WhatsApp آئیکن */}
+                    <svg
                         aria-hidden="true"
                         className="w-8 h-8 text-white"
                         viewBox="0 0 448 512"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
-                      >
+                    >
                         <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
-                      </svg>
-                    </div>
-                  </motion.a>
-             {/* <motion.a
+                    </svg>
+                </div>
+            </motion.a>
+            {/* <motion.a
                     animate={{ y: [0, -4, 0] }}
                     transition={{ repeat: Infinity, duration: 1.8 }}
                     href="https://wa.me/0019027059056"

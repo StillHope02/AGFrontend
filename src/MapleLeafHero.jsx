@@ -27,7 +27,7 @@ export default function MapleLeafHero() {
 
       {/* Hero Section */}
       <div className="relative w-full">
-        <img src={backgroundImage} alt="AG Foods Background" className="w-full h-100 object-cover" />
+        <img src={backgroundImage} loading="lazy" decoding="async" alt="AG Foods Background" className="w-full h-100 object-cover" />
         <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Navigation */}
