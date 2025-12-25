@@ -10,7 +10,7 @@ import warehouse from './assets/warehouse.jpg';
 import packing from './assets/packing.jpg';
 import security from './assets/securityOfficer.jpg';
 import maintenance from './assets/maintenance.jpg';
-import plumber from './assets/plumber.jpg';
+import plumber from './assets/newPlumber.jpg';
 import sales from './assets/saleAssociate.jpg';
 import foodproduction from './assets/productionWorker.jpg';
 import foodPacking from './assets/foodPacking.jpg';
@@ -20,7 +20,8 @@ import heavyVehicle from './assets/heavyVehicle.jpg';
 import cashier from './assets/cashier.jpg';
 import supervisor from './assets/supervisor.jpg';
 import manager from './assets/manager.jpg';
-
+  
+// JobCard component
 const JobCard = ({ title, salary, description, image, delay }) => {
     const navigate = useNavigate();
     return (
