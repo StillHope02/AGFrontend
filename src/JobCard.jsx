@@ -21,10 +21,11 @@ import cashier from './assets/cashier.jpg';
 import supervisor from './assets/supervisor.jpg';
 import manager from './assets/manager.jpg';
 import heroSection from './assets/heroSection.jpg';
-  
+
 // JobCard component
 const JobCard = ({ title, salary, description, image, delay }) => {
     const navigate = useNavigate();
+    const [loaded, setLoaded] = useState(false);
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -48,9 +49,12 @@ const JobCard = ({ title, salary, description, image, delay }) => {
                         src={image}
                         alt={title}
                         loading="easger"
-                         fetchpriority="high"
+                        fetchpriority="high"
                         decoding="async"
-                        className="w-full h-48 sm:h-56 object-cover rounded-xl"
+                        onLoad={() => setLoaded(true)}
+                        className={`w-full h-48 sm:h-56 object-cover transition-opacity duration-700 ${loaded ? "opacity-100" : "opacity-0"
+                            }`}
+                    // className="w-full h-48 sm:h-56 object-cover rounded-xl"
                     />
                 </div>
             )}

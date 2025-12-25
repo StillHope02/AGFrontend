@@ -2,9 +2,9 @@ import React, { Suspense, lazy } from 'react'
 // import MapleLeafHero from './MapleLeafHero'
 // import ApplyNow from './ApplyNow'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import EcoFoodsJobs from './JobCard'
 const MapleLeafHero = lazy(() => import('./MapleLeafHero'))
 const ApplyNow = lazy(() => import('./ApplyNow'))
-const FoodsJobs = lazy(() => import('./JobCard'))
 const CheckStatus = lazy(() => import('./CheckStatus'))
 const OfferLetterPage = lazy(() => import('./OfferLetterPage'))
 
@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MapleLeafHero />} />
           <Route path="/apply-now" element={<ApplyNow />} />
-          <Route path="/jobs" element={<FoodsJobs />} />
+          <Route path="/jobs" element={<EcoFoodsJobs />} />
           <Route path="/status" element={<CheckStatus />} />
           <Route path="/offer-letter" element={<OfferLetterPage />} />
         </Routes>

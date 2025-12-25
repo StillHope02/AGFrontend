@@ -11,7 +11,9 @@ import { Menu, X, CheckCircle, Users, Shield, TrendingUp, HeadphonesIcon, Cpu, F
 
 export default function MapleLeafHero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const navigate = useNavigate();
+
 
   const navVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -28,7 +30,15 @@ export default function MapleLeafHero() {
 
       {/* Hero Section */}
       <div className="relative w-full">
-        <img src={mainImage}  loading="eager"  fetchpriority="high" decoding="async" alt="AG Foods Background" className="w-full h-100 object-cover" />
+        <img src={mainImage} loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          alt="AG Foods Background"
+          onLoad={() => setLoaded(true)}
+          className={`w-full h-108 sm:h-56 object-cover transition-opacity duration-700 ${loaded ? "opacity-100" : "opacity-0"
+            }`}
+        // className="w-full h-100 object-cover" 
+        />
         <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Navigation */}
