@@ -48,12 +48,12 @@ export default function ApplyNow() {
     photo: null,
     passportImage: null,
     certificate: null,
-    profilePicture: null,
+    // profilePicture: null,
   });
 
   const [previews, setPreviews] = useState({
     photo: null,
-    profilePicture: null,
+    // profilePicture: null,
     passportImage: null,
     certificate: null,
   });
@@ -129,9 +129,9 @@ export default function ApplyNow() {
         photo: null,
         passportImage: null,
         certificate: null,
-        profilePicture: null,
+        // profilePicture: null,
       });
-      setPreviews({ photo: null, profilePicture: null, passportImage: null, certificate: null });
+      setPreviews({ photo: null,  passportImage: null, certificate: null });
 
       // Clear file inputs
       document.querySelectorAll('input[type="file"]').forEach((input) => {
@@ -204,27 +204,6 @@ export default function ApplyNow() {
           </motion.div>
         )}
       </motion.nav>
-      {/* <nav className="bg-white shadow sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-          <img
-            src={logoImage}
-            alt="Logo"
-            className="w-14 cursor-pointer"
-            onClick={() => navigate("/")}
-          />
-
-          <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
-
-          <div className="hidden lg:flex gap-6">
-            <button onClick={() => navigate("/")}>Home</button>
-            <button onClick={() => navigate("/jobs")}>Jobs</button>
-            <button className="font-bold text-green-700">Apply Now</button>
-            <button onClick={() => navigate('/status')} className="font-bold text-red-700">Check Status</button>
-          </div>
-        </div>
-      </nav> */}
 
       {/* ================= FORM ================= */}
       <div className="flex justify-center px-4 py-12">
@@ -355,7 +334,7 @@ export default function ApplyNow() {
               <div className="border-2 border-dashed rounded-xl p-4 hover:border-green-600 transition">
                 <label className="flex items-center gap-3 cursor-pointer">
                   <ImageIcon className="text-green-700" />
-                  <span className="font-semibold">Profile Photo</span>
+                  <span className="font-semibold">Profile Photo/Passport Size Photo</span>
                   <span className="text-xs text-gray-500">(Required)</span>
 
                   <input
@@ -382,7 +361,7 @@ export default function ApplyNow() {
                 )}
               </div>
               {/* ================= PROFILE PICTURE ================= */}
-              <div className="border-2 border-dashed rounded-xl p-4 hover:border-green-600 transition">
+              {/* <div className="border-2 border-dashed rounded-xl p-4 hover:border-green-600 transition">
                 <label className="flex items-center gap-3 cursor-pointer">
                   <ImageIcon className="text-green-700" />
                   <span className="font-semibold">Profile Picture</span>
@@ -410,7 +389,7 @@ export default function ApplyNow() {
                     </span>
                   </div>
                 )}
-              </div>
+              </div> */}
 
 
               {/* Passport Copy */}
