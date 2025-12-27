@@ -97,7 +97,9 @@ export default function ApplyNow() {
 
       console.log("📤 Submitting form data...");
 
-      const res = await fetch("https://agfoodbackend-production.up.railway.app/apply", {
+      // const res = await fetch("https://agfoodbackend-production.up.railway.app/apply", {
+        //  const res = await fetch("http://localhost:5000/apply", {
+      const res = await fetch("https://adminag-production.up.railway.app/apply", {
         method: "POST",
         body: formData,
       });

@@ -453,7 +453,8 @@ export default function CheckStatus() {
     setError("");
 
     try {
-      const res = await fetch(`https://agfoodbackend-production.up.railway.app/api/check-status/${passportNumber}`);
+      // const res = await fetch(`https://agfoodbackend-production.up.railway.app/api/check-status/${passportNumber}`);
+      const res = await fetch(`https://adminag-production.up.railway.app/api/check-status/${passportNumber}`);
       const data = await res.json();
 
       if (!res.ok) {
