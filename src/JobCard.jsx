@@ -2,25 +2,26 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, Menu, X, ArrowRight, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import inventry from './assets/InventoryAssistant.jpg';
+import inventry from './assets/assistance.jpg';
 import dataentry from './assets/DataEntry.jpg';
 import electrician from './assets/electrician.jpg';
-import logistic from './assets/logistic.jpg';
+import logistic from './assets/coordinator.jpg';
 import warehouse from './assets/warehouse.jpg';
 import packing from './assets/packing.jpg';
-import security from './assets/securityOfficer.jpg';
+import security from './assets/officer.jpg';
 import maintenance from './assets/technician.jpg';
-import plumber from './assets/newPlumber.jpg';
-import sales from './assets/saleAssociate.jpg';
+import plumber from './assets/Plumber.jpg';
+import sales from './assets/sale.jpg';
 import foodproduction from './assets/productionWorker.jpg';
 import foodPacking from './assets/foodPacking.jpg';
-import helperstaff from './assets/helperStaff.jpg';
-import lightVehicle from './assets/lightVehicle.jpg';
+// import helperstaff from './assets/helperStaff.jpg';
+import lightVehicle from './assets/light.jpeg';
 import heavyVehicle from './assets/heavyVehicle.jpg';
 import cashier from './assets/cashier.jpg';
 import supervisor from './assets/supervisor.jpg';
 import manager from './assets/manager.jpg';
 import heroSection from './assets/heroSection.jpg';
+import helperstaff from "./assets/helper.jpg";
 
 // JobCard component
 const JobCard = ({ title, salary, description, image, delay }) => {
