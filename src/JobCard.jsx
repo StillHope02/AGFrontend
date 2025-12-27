@@ -544,7 +544,8 @@ export default function EcoFoodsJobs() {
                 href="https://wa.me/+19027059056"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="fixed bottom-8 right-8 z-50 group" 
+                className="fixed bottom-20 right-4 sm:bottom-8 sm:right-8 z-50 group"
+                // className="fixed bottom-8 right-8 z-50 group" 
                 animate={{ y: [0, -5, 0] }}
                 transition={{ repeat: Infinity, duration: 2 }}
             >
