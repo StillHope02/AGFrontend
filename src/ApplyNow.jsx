@@ -731,6 +731,18 @@ export default function ApplyNow() {
     certificate: null,
   });
 
+  const fieldRefs = {
+    name: React.useRef(null),
+    email: React.useRef(null),
+    phone: React.useRef(null),
+    passportNumber: React.useRef(null),
+    country: React.useRef(null),
+    jobPosition: React.useRef(null),
+    experience: React.useRef(null),
+    photo: React.useRef(null),
+    passportImage: React.useRef(null),
+  };
+
   // ✅ Scroll to top when component mounts (mobile view fix)
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -754,6 +766,17 @@ export default function ApplyNow() {
       newErrors.passportImage = "Passport image is required";
 
     setErrors(newErrors);
+
+    // 🔥 Scroll to first error
+    const firstErrorKey = Object.keys(newErrors)[0];
+    if (firstErrorKey && fieldRefs[firstErrorKey]?.current) {
+      fieldRefs[firstErrorKey].current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      fieldRefs[firstErrorKey].current.focus?.();
+    }
+
     return Object.keys(newErrors).length === 0;
   };
 
@@ -1043,6 +1066,7 @@ export default function ApplyNow() {
               <label className="text-sm font-semibold">Full Name</label>
               <input
                 // required
+                ref={fieldRefs.name}
                 name="name"
                 value={form.name}
                 onChange={handleChange}
@@ -1060,6 +1084,7 @@ export default function ApplyNow() {
               <label className="text-sm font-semibold">Email Address</label>
               <input
                 type="email"
+                ref={fieldRefs.email}
                 // required
                 name="email"
                 value={form.email}
@@ -1080,6 +1105,7 @@ export default function ApplyNow() {
               </label>
               <input
                 type="tel"
+                ref={fieldRefs.phone}
                 // required
                 name="phone"
                 value={form.phone}
@@ -1099,6 +1125,7 @@ export default function ApplyNow() {
               <input
                 // required
                 name="passportNumber"
+                ref={fieldRefs.passportNumber}
                 value={form.passportNumber}
                 onChange={handleChange}
                 className="w-full border rounded-lg px-4 py-2 uppercase"
@@ -1120,6 +1147,7 @@ export default function ApplyNow() {
               <label className="text-sm font-semibold">Current Country</label>
               <select
                 // required
+                ref={fieldRefs.country}
                 name="country"
                 value={form.country}
                 onChange={handleChange}
@@ -1146,6 +1174,7 @@ export default function ApplyNow() {
               <select
                 // required
                 name="jobPosition"
+                ref={fieldRefs.jobPosition}
                 value={form.jobPosition}
                 onChange={handleChange}
                 className="w-full border rounded-lg px-4 py-2"
@@ -1171,6 +1200,7 @@ export default function ApplyNow() {
               <select
                 // required
                 name="experience"
+                ref={fieldRefs.experience}
                 value={form.experience}
                 onChange={handleChange}
                 className="w-full border rounded-lg px-4 py-2"
@@ -1199,6 +1229,7 @@ export default function ApplyNow() {
 
                   <input
                     type="file"
+                    ref={fieldRefs.photo}
                     name="photo"
                     // required
                     accept="image/*"
@@ -1234,6 +1265,7 @@ export default function ApplyNow() {
 
                   <input
                     type="file"
+                    ref={fieldRefs.passportImage}
                     name="passportImage"
                     // required
                     accept="image/*,application/pdf"
