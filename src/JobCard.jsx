@@ -486,7 +486,7 @@ export default function EcoFoodsJobs() {
                                     </div>
                                     <div>
                                         <p className="font-medium text-sm sm:text-base">Phone Number</p>
-                                        <a href="tel:+15819001004" className="text-xs sm:text-sm text-green-200 hover:text-white transition">+19027059056</a>
+                                        <a href="tel:+19027059056" className="text-xs sm:text-sm text-green-200 hover:text-white transition">+19027059056</a>
                                     </div>
                                 </li>
                                 <li className="flex items-start">
@@ -495,7 +495,7 @@ export default function EcoFoodsJobs() {
                                     </div>
                                     <div>
                                         <p className="font-medium text-sm sm:text-base">Email Address</p>
-                                        <a href="mailto:agfoodscanada@gmail.com" className="text-xs sm:text-sm text-green-200 hover:text-white transition break-all">egfoodcanadacompany@gmail.com</a>
+                                        <a href="mailto:agfoodcanadacompany@gmail.com" className="text-xs sm:text-sm text-green-200 hover:text-white transition break-all">agfoodcanadacompany@gmail.com</a>
                                     </div>
                                 </li>
                                 <li className="flex items-start">
