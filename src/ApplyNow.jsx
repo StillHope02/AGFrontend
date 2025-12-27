@@ -18,19 +18,49 @@ const countries = [
 
 /* ===== Job Positions List ===== */
 const jobPositions = [
+  "Heavy Vehicle Driver",
+  "Light Vehicle Driver",
+  "Helper Staff",
+  "Fruit Packaging Worker",
+  "Packaging Specialist",
+  "Food Production Worker",
+  "Warehouse Associate",
+  "Inventory Assistant",
+  "Security Officer",
+  "Maintenance Technician",
+  "Plumber",
+  "Electrician",
+  "Sales Associate",
+  "Logistics Coordinator",
+  "Data Entry Clerk",
+  "Cashier",
+  "Supervisor",
+  "Operations Manager",
   "Food Packer",
   "Quality Control Inspector",
   "Production Line Worker",
-  "Warehouse Associate",
   "Forklift Operator",
   "Packaging Machine Operator",
   "Food Safety Supervisor",
   "Inventory Clerk",
   "Shift Supervisor",
-  "Maintenance Technician",
   "Loading/Unloading Worker",
   "General Helper"
 ];
+// const jobPositions = [
+//   "Food Packer",
+//   "Quality Control Inspector",
+//   "Production Line Worker",
+//   "Warehouse Associate",
+//   "Forklift Operator",
+//   "Packaging Machine Operator",
+//   "Food Safety Supervisor",
+//   "Inventory Clerk",
+//   "Shift Supervisor",
+//   "Maintenance Technician",
+//   "Loading/Unloading Worker",
+//   "General Helper"
+// ];
 
 export default function ApplyNow() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -131,7 +161,7 @@ export default function ApplyNow() {
         certificate: null,
         // profilePicture: null,
       });
-      setPreviews({ photo: null,  passportImage: null, certificate: null });
+      setPreviews({ photo: null, passportImage: null, certificate: null });
 
       // Clear file inputs
       document.querySelectorAll('input[type="file"]').forEach((input) => {
@@ -396,7 +426,7 @@ export default function ApplyNow() {
               <div className="border-2 border-dashed rounded-xl p-4 hover:border-green-600 transition">
                 <label className="flex items-center gap-3 cursor-pointer">
                   <FileText className="text-green-700" />
-                  <span className="font-semibold">Passport Copy</span>
+                  <span className="font-semibold">Passport Photo</span>
                   <span className="text-xs text-gray-500">(Required)</span>
 
                   <input
