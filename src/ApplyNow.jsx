@@ -660,7 +660,7 @@ const countries = [
 ];
 
 /* ===== Job Positions List ===== */
-const jobPositions =  [
+const jobPositions = [
   "Heavy Vehicle Driver",
   "Light Vehicle Driver",
   "Helper Staff",
@@ -709,6 +709,7 @@ export default function ApplyNow() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // ✅ NEW: Loading state
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -735,6 +736,27 @@ export default function ApplyNow() {
     window.scrollTo(0, 0);
   }, []);
 
+  const validateForm = () => {
+    let newErrors = {};
+
+    if (!form.name.trim()) newErrors.name = "Full name is required";
+    if (!form.email.trim()) newErrors.email = "Email address is required";
+    if (!form.phone.trim()) newErrors.phone = "WhatsApp number is required";
+    if (!form.passportNumber.trim())
+      newErrors.passportNumber = "Passport number is required";
+    if (!form.country) newErrors.country = "Please select your country";
+    if (!form.jobPosition)
+      newErrors.jobPosition = "Please select a job position";
+    if (!form.experience)
+      newErrors.experience = "Please select experience level";
+    if (!form.photo) newErrors.photo = "Profile photo is required";
+    if (!form.passportImage)
+      newErrors.passportImage = "Passport image is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "passportNumber") {
@@ -745,64 +767,64 @@ export default function ApplyNow() {
   };
 
   // Add this function in your ApplyNow component
-const compressImage = (file, maxWidth = 800, quality = 0.7) => {
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = (event) => {
-      const img = new Image();
-      img.src = event.target.result;
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        let width = img.width;
-        let height = img.height;
+  const compressImage = (file, maxWidth = 800, quality = 0.7) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (event) => {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
 
-        if (width > maxWidth) {
-          height = (height * maxWidth) / width;
-          width = maxWidth;
-        }
+          if (width > maxWidth) {
+            height = (height * maxWidth) / width;
+            width = maxWidth;
+          }
 
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0, width, height);
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
 
-        canvas.toBlob(
-          (blob) => {
-            resolve(new File([blob], file.name, {
-              type: 'image/jpeg',
-              lastModified: Date.now(),
-            }));
-          },
-          'image/jpeg',
-          quality
-        );
+          canvas.toBlob(
+            (blob) => {
+              resolve(new File([blob], file.name, {
+                type: 'image/jpeg',
+                lastModified: Date.now(),
+              }));
+            },
+            'image/jpeg',
+            quality
+          );
+        };
       };
-    };
-  });
-};
-
-// Update handleFile function
-const handleFile = async (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  // Compress image if it's an image file
-  let processedFile = file;
-  if (file.type.startsWith('image/')) {
-    setIsLoading(true);
-    processedFile = await compressImage(file);
-    setIsLoading(false);
-  }
-
-  setForm({ ...form, [e.target.name]: processedFile });
-  if (processedFile) {
-    setPreviews({ 
-      ...previews, 
-      [e.target.name]: URL.createObjectURL(processedFile) 
     });
-  }
-};
+  };
+
+  // Update handleFile function
+  const handleFile = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Compress image if it's an image file
+    let processedFile = file;
+    if (file.type.startsWith('image/')) {
+      setIsLoading(true);
+      processedFile = await compressImage(file);
+      setIsLoading(false);
+    }
+
+    setForm({ ...form, [e.target.name]: processedFile });
+    if (processedFile) {
+      setPreviews({
+        ...previews,
+        [e.target.name]: URL.createObjectURL(processedFile)
+      });
+    }
+  };
   // const handleFile = (e) => {
   //   const file = e.target.files[0];
   //   setForm({ ...form, [e.target.name]: file });
@@ -813,6 +835,10 @@ const handleFile = async (e) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
 
     try {
       if (!form.photo || !form.passportImage) {
@@ -1016,7 +1042,7 @@ const handleFile = async (e) => {
             <div>
               <label className="text-sm font-semibold">Full Name</label>
               <input
-                required
+                // required
                 name="name"
                 value={form.name}
                 onChange={handleChange}
@@ -1024,6 +1050,9 @@ const handleFile = async (e) => {
                 placeholder="Enter full name"
                 disabled={isLoading}
               />
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
             </div>
 
             {/* Email */}
@@ -1031,7 +1060,7 @@ const handleFile = async (e) => {
               <label className="text-sm font-semibold">Email Address</label>
               <input
                 type="email"
-                required
+                // required
                 name="email"
                 value={form.email}
                 onChange={handleChange}
@@ -1039,6 +1068,9 @@ const handleFile = async (e) => {
                 placeholder="example@email.com"
                 disabled={isLoading}
               />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-2">{errors.email}</p>
+              )}
             </div>
 
             {/* Phone */}
@@ -1048,7 +1080,7 @@ const handleFile = async (e) => {
               </label>
               <input
                 type="tel"
-                required
+                // required
                 name="phone"
                 value={form.phone}
                 onChange={handleChange}
@@ -1056,13 +1088,16 @@ const handleFile = async (e) => {
                 placeholder="+92XXXXXXXXXX"
                 disabled={isLoading}
               />
+              {errors.phone && (
+                <p className="text-red-500 text-xs mt-2">{errors.phone}</p>
+              )}
             </div>
 
             {/* Passport Number */}
             <div>
               <label className="text-sm font-semibold">Passport Number</label>
               <input
-                required
+                // required
                 name="passportNumber"
                 value={form.passportNumber}
                 onChange={handleChange}
@@ -1075,13 +1110,16 @@ const handleFile = async (e) => {
                 Enter your passport number (will be used to check application
                 status)
               </p>
+              {errors.passportNumber && (
+                <p className="text-red-500 text-xs mt-2">{errors.passportNumber}</p>
+              )}
             </div>
 
             {/* Country Dropdown */}
             <div>
               <label className="text-sm font-semibold">Current Country</label>
               <select
-                required
+                // required
                 name="country"
                 value={form.country}
                 onChange={handleChange}
@@ -1095,6 +1133,9 @@ const handleFile = async (e) => {
                   </option>
                 ))}
               </select>
+              {errors.country && (
+                <p className="text-red-500 text-xs mt-1">{errors.country}</p>
+              )}
             </div>
 
             {/* Job Position Dropdown */}
@@ -1103,7 +1144,7 @@ const handleFile = async (e) => {
                 Job Position Applying For
               </label>
               <select
-                required
+                // required
                 name="jobPosition"
                 value={form.jobPosition}
                 onChange={handleChange}
@@ -1117,6 +1158,9 @@ const handleFile = async (e) => {
                   </option>
                 ))}
               </select>
+              {errors.jobPosition && (
+                <p className="text-red-500 text-xs mt-2">{errors.jobPosition}</p>
+              )}
             </div>
 
             {/* Experience */}
@@ -1125,7 +1169,7 @@ const handleFile = async (e) => {
                 Food Packing Experience
               </label>
               <select
-                required
+                // required
                 name="experience"
                 value={form.experience}
                 onChange={handleChange}
@@ -1137,6 +1181,9 @@ const handleFile = async (e) => {
                 <option value="1-3 years">1 – 3 Years</option>
                 <option value="3+ years">3+ Years</option>
               </select>
+              {errors.experience && (
+                <p className="text-red-500 text-xs mt-2">{errors.experience}</p>
+              )}
             </div>
 
             {/* ================= FILE UPLOADS ================= */}
@@ -1153,7 +1200,7 @@ const handleFile = async (e) => {
                   <input
                     type="file"
                     name="photo"
-                    required
+                    // required
                     accept="image/*"
                     onChange={handleFile}
                     className="hidden"
@@ -1173,6 +1220,9 @@ const handleFile = async (e) => {
                     </span>
                   </div>
                 )}
+                {errors.photo && (
+                  <p className="text-red-500 text-xs mt-2">{errors.photo}</p>
+                )}
               </div>
 
               {/* Passport Copy */}
@@ -1185,7 +1235,7 @@ const handleFile = async (e) => {
                   <input
                     type="file"
                     name="passportImage"
-                    required
+                    // required
                     accept="image/*,application/pdf"
                     onChange={handleFile}
                     className="hidden"
@@ -1204,6 +1254,9 @@ const handleFile = async (e) => {
                       {form.passportImage?.name}
                     </span>
                   </div>
+                )}
+                {errors.passportImage && (
+                  <p className="text-red-500 text-xs mt-2">{errors.passportImage}</p>
                 )}
               </div>
 
