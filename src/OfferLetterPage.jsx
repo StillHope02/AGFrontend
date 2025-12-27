@@ -638,7 +638,7 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
                 </tr>
                 <tr className="bg-gradient-to-r from-red-50 to-pink-50">
                   <td className="p-4 font-bold text-gray-800 border-r-2 border-white">Email</td>
-                  <td className="p-4 text-gray-800">agfoods@gmail.com</td>
+                  <td className="p-4 text-gray-800">agfoodcanadacompany@gmail.com</td>
                 </tr>
               </tbody>
             </table>

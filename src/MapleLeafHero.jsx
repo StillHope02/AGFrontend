@@ -1093,7 +1093,7 @@ export default function MapleLeafHero() {
                   </div>
                   <div>
                     <p className="font-medium">Email Address</p>
-                    <a href="mailto:ecofoodscanada3@gmail.com" className="text-green-200 hover:text-white transition">egfoodscanada@gmail.com</a>
+                    <a href="mailto:ecofoodscanada3@gmail.com" className="text-green-200 hover:text-white transition">egfoodcanadacompany@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex items-start">

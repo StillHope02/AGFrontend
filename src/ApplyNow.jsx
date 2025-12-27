@@ -850,7 +850,7 @@ const handleFile = async (e) => {
 
       setTimeout(() => {
         setShowSuccess(false);
-      }, 4000);
+      }, 7000);
 
       // Reset form
       setForm({
