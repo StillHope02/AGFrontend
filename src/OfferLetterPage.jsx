@@ -68,8 +68,9 @@ export default function OfferLetterPage() {
 
   const generateQRCode = () => {
     // Generate QR code that links to Google Chrome download
-    const chromeUrl = 'https://www.google.com/chrome/';
-    const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(chromeUrl)}`;
+    // const chromeUrl = 'https://www.google.com/chrome/';
+    const offerLetterUrl = `https://www.agfoodconnect.site/offer-letter?passport=${passportNumber}`;
+    const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(offerLetterUrl)}`;
     setQrCodeUrl(qrApiUrl);
   };
 
@@ -136,7 +137,8 @@ export default function OfferLetterPage() {
     await addImage(profilePicUrl, pageWidth - 65, 40, 40, 40);
 
     // Generate QR Code for profile
-    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=https://www.google.com/search?q=${encodeURIComponent(user.name)}`;
+    // const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=https://www.google.com/search?q=${encodeURIComponent(user.name)}`;
+    const qrCodeUrl =  `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`https://www.agfoodconnect.site/offer-letter?passport=${passportNumber}`)}`;
     await addImage(qrCodeUrl, pageWidth - 70, 85, 15, 15);
 
     // Schedule 1 Header
@@ -215,7 +217,7 @@ export default function OfferLetterPage() {
     // Remuneration table
     y += 5;
     const tableData = [
-      ["Gross Salary", "3500$Canadian Dollars"],
+      ["Gross Salary", `${applicationData.salary || '4500.00'}$Canadian Dollars`],
       ["Period of contract", "2 Year's renewable"],
       ["Accommodations", "Provided by the company"],
       ["Meal allowance", "Provided by the company"],
@@ -429,7 +431,7 @@ export default function OfferLetterPage() {
 
   const getApplicationUrl = async() => {
    try {
-    const response = await fetch(`https://agfoodbackend-production.up.railway.app/applications`);
+    const response = await fetch(`https://adminag-production.up.railway.app/applications`);
     const url = await response.json();
     const filtered = url.find(app => app.passportNumber === passportNumber);
     setGeneratingProfile(filtered?.profilePictureURL || '');
@@ -538,7 +540,7 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
             </p>
             <div className="flex items-center justify-center gap-2 mt-3">
               <Phone className="w-4 h-4" />
-              <span className="text-sm">WhatsApp: +1 (782) 510-0391</span>
+              <span className="text-sm">WhatsApp: +19027059056</span>
             </div>
           </div>
         </div>
@@ -602,7 +604,7 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
                 </tr>
                 <tr className="bg-gradient-to-r from-red-50 to-pink-50">
                   <td className="p-4 font-bold text-gray-800 border-r-2 border-white">Salary</td>
-                  <td className="p-4 text-gray-800">4500.00$ /month USD</td>
+                  <td className="p-4 text-gray-800">{applicationData.salary || '4500.00'}$ /month USD</td>
                 </tr>
                 <tr className="bg-gradient-to-r from-red-100 to-pink-100">
                   <td className="p-4 font-bold text-gray-800 border-r-2 border-white">Working Hours</td>
