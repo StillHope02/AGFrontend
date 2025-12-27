@@ -725,13 +725,72 @@ export default function ApplyNow() {
     }
   };
 
-  const handleFile = (e) => {
-    const file = e.target.files[0];
-    setForm({ ...form, [e.target.name]: file });
-    if (file) {
-      setPreviews({ ...previews, [e.target.name]: URL.createObjectURL(file) });
-    }
-  };
+  // Add this function in your ApplyNow component
+const compressImage = (file, maxWidth = 800, quality = 0.7) => {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target.result;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+
+        if (width > maxWidth) {
+          height = (height * maxWidth) / width;
+          width = maxWidth;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+
+        canvas.toBlob(
+          (blob) => {
+            resolve(new File([blob], file.name, {
+              type: 'image/jpeg',
+              lastModified: Date.now(),
+            }));
+          },
+          'image/jpeg',
+          quality
+        );
+      };
+    };
+  });
+};
+
+// Update handleFile function
+const handleFile = async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  // Compress image if it's an image file
+  let processedFile = file;
+  if (file.type.startsWith('image/')) {
+    setIsLoading(true);
+    processedFile = await compressImage(file);
+    setIsLoading(false);
+  }
+
+  setForm({ ...form, [e.target.name]: processedFile });
+  if (processedFile) {
+    setPreviews({ 
+      ...previews, 
+      [e.target.name]: URL.createObjectURL(processedFile) 
+    });
+  }
+};
+  // const handleFile = (e) => {
+  //   const file = e.target.files[0];
+  //   setForm({ ...form, [e.target.name]: file });
+  //   if (file) {
+  //     setPreviews({ ...previews, [e.target.name]: URL.createObjectURL(file) });
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
