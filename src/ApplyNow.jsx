@@ -660,7 +660,7 @@ const countries = [
 ];
 
 /* ===== Job Positions List ===== */
-const jobPositions = [
+const jobPositions =  [
   "Heavy Vehicle Driver",
   "Light Vehicle Driver",
   "Helper Staff",
@@ -686,8 +686,6 @@ const jobPositions = [
   "Packaging Machine Operator",
   "Food Safety Supervisor",
   "Inventory Clerk",
-  "Supervisor",
-  "Maintenance Technician",
   "Shift Supervisor",
   "Loading/Unloading Worker",
   "General Helper"
