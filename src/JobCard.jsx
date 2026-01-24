@@ -486,7 +486,7 @@ export default function EcoFoodsJobs() {
                                     </div>
                                     <div>
                                         <p className="font-medium text-sm sm:text-base">Phone Number</p>
-                                        <a href="tel:+19027059056" className="text-xs sm:text-sm text-green-200 hover:text-white transition">+19027059056</a>
+                                        <a href="tel:+966541831125" className="text-xs sm:text-sm text-green-200 hover:text-white transition">+966541831125</a>
                                     </div>
                                 </li>
                                 <li className="flex items-start">
@@ -541,7 +541,7 @@ export default function EcoFoodsJobs() {
 
             {/* WhatsApp Button */}
             <motion.a
-                href="https://wa.me/+19027059056"
+                href="https://wa.me/+966541831125"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="fixed bottom-20 right-4 sm:bottom-8 sm:right-8 z-50 group"
@@ -564,7 +564,7 @@ export default function EcoFoodsJobs() {
             {/* <motion.a
                     animate={{ y: [0, -4, 0] }}
                     transition={{ repeat: Infinity, duration: 1.8 }}
-                    href="https://wa.me/0019027059056"
+                    href="https://wa.me/00966541831125"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50"

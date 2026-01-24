@@ -1484,7 +1484,6 @@ export default function ApplyNow() {
         </div>
       </div>
 
-      {/* ✅ Success Popup */}
       {showSuccess && (
         <motion.div
           initial={{ opacity: 0 }}
