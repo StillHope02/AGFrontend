@@ -881,7 +881,7 @@ export default function ApplyNow() {
       console.log("📤 Submitting form data...");
 
       const res = await fetch(
-        "https://adminag-production.up.railway.app/apply",
+        "https://agfoodbackend-production-63ff.up.railway.app/apply",
         {
           method: "POST",
           body: formData,
@@ -1111,7 +1111,7 @@ export default function ApplyNow() {
                 value={form.phone}
                 onChange={handleChange}
                 className="w-full border rounded-lg px-4 py-2"
-                placeholder="+92XXXXXXXXXX"
+                // placeholder="+92XXXXXXXXXX"
                 disabled={isLoading}
               />
               {errors.phone && (
