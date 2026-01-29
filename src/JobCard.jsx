@@ -70,8 +70,9 @@ const JobCard = ({ title, salary, description, image, delay }) => {
 
             <div className="px-4 sm:px-6 pb-4 sm:pb-6">
                 <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    // whileHover={{ scale: 1.02 }}
+                    // whileTap={{ scale: 0.98 }}
+                    // transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     onClick={() => navigate("/apply-now")}
                     className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2"
                 >
@@ -247,8 +248,9 @@ export default function EcoFoodsJobs() {
                         </div>
 
                         <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            // whileHover={{ scale: 1.05 }}
+                            // whileTap={{ scale: 0.95 }}
+                            // transition={{ type: "spring", stiffness: 300, damping: 20 }}
                             onClick={() => navigate("/apply-now")}
                             className="hidden lg:block bg-green-600 text-white px-5 xl:px-6 py-2 rounded-full font-semibold hover:bg-green-700 transition-colors text-sm xl:text-base"
                         >
