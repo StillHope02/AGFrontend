@@ -1082,7 +1082,7 @@ export default function MapleLeafHero() {
                   </div>
                   <div>
                     <p className="font-medium">Phone Number</p>
-                    <a href="tel:+966541831125" className="text-green-200 hover:text-white transition">+966541831125</a>
+                    <a href="tel:+966541831125" className="text-green-200 hover:text-white transition">+19027059056</a>
                   </div>
                 </li>
                 <li className="flex items-start">
