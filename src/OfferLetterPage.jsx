@@ -272,9 +272,9 @@ export default function OfferLetterPage() {
     // Right side - stamp02
     await addImage(stamp02, pageWidth - margin - 60, y - 25, 25, 25);
 
-    doc.text("SIGNATURE__________", pageWidth - margin - 80, y);
-    y -= 5;
-    doc.text("THUMB", pageWidth - margin - 80, y);
+    // doc.text("SIGNATURE__________", pageWidth - margin - 80, y);
+    // y -= 5;
+    // doc.text("THUMB", pageWidth - margin - 80, y);
 
     // Bottom border - RED ONLY
     doc.setFillColor(...redColor);
@@ -410,8 +410,10 @@ export default function OfferLetterPage() {
     doc.setFontSize(8);
     doc.text("General Manager Signature", margin + 10, y2);
     doc.text("Employment signature", pageWidth - margin - 50, y2);
+    y2 += 5;
+    doc.text("_________________", pageWidth - margin - 50, y2);
 
-    y2 += 8;
+    y2 += 3;
     doc.setFont("helvetica", "bold");
     doc.text("Grayson Jackson", margin + 10, y2);
 
