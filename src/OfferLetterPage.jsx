@@ -138,7 +138,7 @@ export default function OfferLetterPage() {
 
     // Generate QR Code for profile
     // const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=https://www.google.com/search?q=${encodeURIComponent(user.name)}`;
-    const qrCodeUrl =  `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`https://www.agfoodconnect.site/offer-letter?passport=${passportNumber}`)}`;
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`https://www.agfoodconnect.site/offer-letter?passport=${passportNumber}`)}`;
     await addImage(qrCodeUrl, pageWidth - 70, 85, 15, 15);
 
     // Schedule 1 Header
@@ -160,7 +160,8 @@ export default function OfferLetterPage() {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(10);
     const nameY = 75;
-    const nameText = `${user.name}masloon22-12-2025`;
+     const nameText = `${user.name}`;
+    // const nameText = `${user.name}masloon22-12-2025`;
     doc.text(nameText, pageWidth / 2, nameY, { align: 'center' });
     doc.line(pageWidth / 2 - 50, nameY + 1, pageWidth / 2 + 50, nameY + 1);
 
@@ -168,7 +169,7 @@ export default function OfferLetterPage() {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(9);
     doc.text(user.name.toUpperCase(), pageWidth / 2, 82, { align: 'center' });
-    doc.text("Having Nationality of PAK", pageWidth / 2, 87, { align: 'center' });
+    doc.text(`Having Nationality of ${applicationData.country}`, pageWidth / 2, 87, { align: 'center' });
 
     // Passport number
     doc.setFont("helvetica", "bold");
@@ -429,16 +430,16 @@ export default function OfferLetterPage() {
     window.print();
   };
 
-  const getApplicationUrl = async() => {
-   try {
-    const response = await fetch(`https://agfoodbackendcopy-production.up.railway.app//applications`);
-    const url = await response.json();
-    const filtered = url.find(app => app.passportNumber === passportNumber);
-    setGeneratingProfile(filtered?.profilePictureURL || '');
-    console.log('Generated Application URL:', url, filtered?.profilePictureURL);
-   } catch (error) {
-    console.error('Error generating application URL:', error);
-   }
+  const getApplicationUrl = async () => {
+    try {
+      const response = await fetch(`https://agfoodbackendcopy-production.up.railway.app//applications`);
+      const url = await response.json();
+      const filtered = url.find(app => app.passportNumber === passportNumber);
+      setGeneratingProfile(filtered?.profilePictureURL || '');
+      console.log('Generated Application URL:', url, filtered?.profilePictureURL);
+    } catch (error) {
+      console.error('Error generating application URL:', error);
+    }
   }
 
   useEffect(() => {
@@ -466,7 +467,7 @@ export default function OfferLetterPage() {
       </div>
     );
   }
-console.log('Application Data:', applicationData, applicationData.profilePictureURL,applicationData?.photoURL);
+  console.log('Application Data:', applicationData, applicationData.profilePictureURL, applicationData?.photoURL);
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4">
       {/* Action Buttons */}
@@ -515,8 +516,8 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
                   👤
                 </div> */}
                 <img
-                src={profile}
-                 // src={`https://agfoodbackend-production.up.railway.app/${generatingProfile}` ?? profile}
+                  src={profile}
+                  // src={`https://agfoodbackend-production.up.railway.app/${generatingProfile}` ?? profile}
                   // src={`https://agfoodbackend-production.up.railway.app/${applicationData?.profilePictureURL}`}
                   alt="Applicant" className="w-full h-full object-cover rounded-lg" />
               </div>
@@ -540,7 +541,7 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
             </p>
             <div className="flex items-center justify-center gap-2 mt-3">
               <Phone className="w-4 h-4" />
-              <span className="text-sm">WhatsApp: +966541831125</span>
+              <span className="text-sm">WhatsApp: +19027059056</span>
             </div>
           </div>
         </div>
@@ -560,7 +561,7 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
             </div>
             <div>
               <p className="text-sm text-gray-600 font-semibold">NAME:</p>
-              <p className="text-lg font-bold text-gray-800">{applicationData.name}</p>
+              <p className="text-lg font-bold text-gray-800 break-words">{applicationData.name}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600 font-semibold">PASSPORT NO:</p>
@@ -568,15 +569,15 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
             </div>
             <div>
               <p className="text-sm text-gray-600 font-semibold">EMAIL:</p>
-              <p className="text-lg font-bold text-gray-800">{applicationData.email}</p>
+              <p className="text-lg font-bold text-gray-800 break-all">{applicationData.email}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600 font-semibold">PHONE NO:</p>
-              <p className="text-lg font-bold text-gray-800">{applicationData.phone}</p>
+              <p className="text-lg font-bold text-gray-800 break-words">{applicationData.phone}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600 font-semibold">Nationality:</p>
-              <p className="text-lg font-bold text-gray-800">{applicationData.country}</p>
+              <p className="text-lg font-bold text-gray-800 break-all">{applicationData.country}</p>
             </div>
           </div>
         </div>
@@ -634,7 +635,7 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
                 </tr>
                 <tr className="bg-gradient-to-r from-red-100 to-pink-100">
                   <td className="p-4 font-bold text-gray-800 border-r-2 border-white">Contact Info</td>
-                  <td className="p-4 text-gray-800">+1 (782) 510-0391</td>
+                  <td className="p-4 text-gray-800">+19027059056</td>
                 </tr>
                 <tr className="bg-gradient-to-r from-red-50 to-pink-50">
                   <td className="p-4 font-bold text-gray-800 border-r-2 border-white">Email</td>
@@ -692,7 +693,7 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
           </div>
 
           {/* Footer Section with Employee Details */}
-          <div className="mt-12 p-6 bg-gradient-to-r from-blue-900 to-gray-900 text-white rounded-lg">
+          {/* <div className="mt-12 p-6 bg-gradient-to-r from-blue-900 to-gray-900 text-white rounded-lg">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="bg-red-600 w-16 h-20 rounded flex items-center justify-center">
@@ -709,6 +710,44 @@ console.log('Application Data:', applicationData, applicationData.profilePicture
                 <p className="font-bold">Tracking No: <span className="font-normal">{passportNumber}</span></p>
                 <p className="font-bold">Email Address: <span className="font-normal text-sm">{applicationData.email}</span></p>
               </div>
+            </div>
+          </div> */}
+          <div className="mt-12 p-6 bg-gradient-to-r from-blue-900 to-gray-900 text-white rounded-lg">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+
+              {/* Left Section */}
+              <div className="flex items-center gap-4">
+                <div className="bg-red-600 w-16 h-20 rounded flex items-center justify-center shrink-0">
+                  <div className="text-white text-3xl">🇨🇦</div>
+                </div>
+
+                <div className="min-w-0">
+                  <p className="font-bold text-lg break-words">
+                    {applicationData.name}
+                  </p>
+                  <p className="text-blue-200 text-sm break-words">
+                    {applicationData.phone}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Section */}
+              <div className="text-left md:text-right space-y-1 min-w-0">
+                <p className="font-bold break-words">
+                  Full Name: <span className="font-normal">{applicationData.name}</span>
+                </p>
+                <p className="font-bold break-words">
+                  Nationality: <span className="font-normal">{applicationData.country}</span>
+                </p>
+                <p className="font-bold break-all">
+                  Tracking No: <span className="font-normal">{passportNumber}</span>
+                </p>
+                <p className="font-bold break-all">
+                  Email Address:{" "}
+                  <span className="font-normal text-sm">{applicationData.email}</span>
+                </p>
+              </div>
+
             </div>
           </div>
 
