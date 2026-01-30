@@ -206,7 +206,7 @@ export default function OfferLetterPage() {
     doc.setFont("helvetica", "normal");
     doc.text("The term of this contract shall be limited or unlimited and Company shall employ you commencing", margin + 5, y);
     y += 4;
-    doc.text("on or around the 1st September 2025.", margin + 5, y);
+    doc.text(`on or around the ${new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}.`, margin + 5, y);
 
     y += 8;
     // REMUNERATION - Bold and Underline
@@ -661,7 +661,7 @@ export default function OfferLetterPage() {
               <strong>Subject:</strong> Hiring of Foreign National Worker (overseas) LMIA approval Reference No.: TW8816
             </p>
             <p className="text-gray-700 mb-6">
-              This Employment Agreement (the "Agreement") is made and effective this month 2025
+              This Employment Agreement (the "Agreement") is made and effective this month 2026
             </p>
 
             <p className="text-gray-700 mb-4">
@@ -784,7 +784,7 @@ export default function OfferLetterPage() {
 
         {/* Footer */}
         <div className="bg-gray-800 text-white text-center py-4">
-          <p className="text-sm">© 2025 mapleleaffoods. All rights reserved.</p>
+          <p className="text-sm">© 2026 mapleleaffoods. All rights reserved.</p>
         </div>
       </div>
     </div>
