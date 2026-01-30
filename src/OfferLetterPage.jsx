@@ -320,7 +320,7 @@ export default function OfferLetterPage() {
     let y2 = 50;
 
     // (6) Non-Competition and Confidentiality - Bold and Underline
-    const nonCompText = "(6) Non-Competition and Confidentiality";
+    const nonCompText = "(5) Non-Competition and Confidentiality";
     doc.text(nonCompText, margin, y2);
     const nonCompWidth = doc.getTextWidth(nonCompText);
     doc.line(margin, y2 + 0.5, margin + nonCompWidth, y2 + 0.5);
