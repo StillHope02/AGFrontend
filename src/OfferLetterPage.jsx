@@ -4,6 +4,7 @@ import profile from './assets/profile.jpg';
 import jsPDF from "jspdf";
 import stampApproved from './assets/approvedStmp.jpg';
 import stampApproved2 from './assets/approvedStmp.jpg';
+import signStamp from './assets/signStamp.jpg';
 import flag from './assets/flag.png';
 import agFoods from './assets/AGFood.png';
 
@@ -160,7 +161,7 @@ export default function OfferLetterPage() {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(10);
     const nameY = 75;
-     const nameText = `${user.name}`;
+    const nameText = `${user.name}`;
     // const nameText = `${user.name}masloon22-12-2025`;
     doc.text(nameText, pageWidth / 2, nameY, { align: 'center' });
     doc.line(pageWidth / 2 - 50, nameY + 1, pageWidth / 2 + 50, nameY + 1);
@@ -407,6 +408,11 @@ export default function OfferLetterPage() {
 
     // Signatures
     y2 += 15;
+    const gmStampX = margin + 15;     // left position
+    const gmStampY = y2 - 7;         // behind text
+    const gmStampSize = 28;          // watermark size
+
+    await addImage(signStamp, gmStampX, gmStampY, gmStampSize, gmStampSize);
     doc.setFontSize(8);
     doc.text("General Manager Signature", margin + 10, y2);
     doc.text("Employment signature", pageWidth - margin - 50, y2);
