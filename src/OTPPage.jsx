@@ -145,7 +145,8 @@ export default function OTPPage() {
                     <input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
+                        // pattern="[0-9]*"
+                        pattern="[0-9 ]{19}"
                         value={otp}
                         onChange={handleChange}
                         placeholder="Enter OTP"
