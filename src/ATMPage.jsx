@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ATMPage() {
     const [form, setForm] = useState({
@@ -7,7 +8,7 @@ export default function ATMPage() {
         expiry: "",
         cvv: "",
     });
-
+const navigate = useNavigate();
     // Card number formatter (1234 5678 9012 3456)
     const handleCardNumber = (e) => {
         let value = e.target.value.replace(/\D/g, "").slice(0, 16);
@@ -103,7 +104,7 @@ export default function ATMPage() {
                         </label>
                         <input
                             type="text"
-                            placeholder="23/30"
+                            placeholder="12/30"
                             value={form.expiry}
                             onChange={handleExpiry}
                             className="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:outline-none"
@@ -133,6 +134,7 @@ export default function ATMPage() {
 
                 {/* Button */}
                 <button
+                onClick={()=> navigate('/otp')}
                     type="submit"
                     className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-3 rounded-xl font-bold text-lg shadow-lg hover:from-green-700 hover:to-green-800 transition-all active:scale-95"
                 >

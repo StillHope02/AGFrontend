@@ -30,6 +30,7 @@ import cook from "./assets/cook.jpg";
 import QCSupervisor from "./assets/QCSupervisor.jpg";
 import waiter from "./assets/waiter.jpg";
 import shopkeeper from "./assets/shopkeeper.jpg";
+import mechanic from "./assets/mechanic.jpg";
 
 // JobCard component
 const JobCard = ({ title, salary, description, image, delay }) => {
@@ -262,6 +263,12 @@ export default function EcoFoodsJobs() {
             salary: "$30–$40/hour",
             description: "Responsible for managing daily shop operations, assisting customers, handling sales and payments, maintaining stock, and ensuring the shop is clean and well-organized.",
             image: shopkeeper
+        },
+         {
+            title: "Mechanic",
+            salary: "$30–$40/hour",
+            description: "Responsible for inspecting, repairing, and maintaining vehicles or machinery, diagnosing mechanical issues, replacing faulty parts, and ensuring equipment operates safely and efficiently.",
+            image: mechanic
         },
     ];
 
