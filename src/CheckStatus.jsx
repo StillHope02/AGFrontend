@@ -37,7 +37,7 @@
 //       // ✅ AUTOMATIC PDF DOWNLOAD IF APPROVED
 //       if (data.status === "Approved") {
 //         setDownloading(true);
-        
+
 //         // Small delay for UX
 //         setTimeout(() => {
 //           triggerAutoDownload(passportNumber);
@@ -53,19 +53,19 @@
 //   // ✅ Function to trigger PDF download
 //   const triggerAutoDownload = (passport) => {
 //     const downloadUrl = `https://agfoodbackend-production.up.railway.app/api/generate-offer-pdf/${passport}`;
-    
+
 //     // Create invisible iframe for download
 //     const iframe = document.createElement('iframe');
 //     iframe.style.display = 'none';
 //     iframe.src = downloadUrl;
 //     document.body.appendChild(iframe);
-    
+
 //     // Also update the download link
 //     if (downloadRef.current) {
 //       downloadRef.current.href = downloadUrl;
 //       downloadRef.current.click();
 //     }
-    
+
 //     // Remove iframe after some time
 //     setTimeout(() => {
 //       document.body.removeChild(iframe);
@@ -76,7 +76,7 @@
 //   // ✅ Manual download function
 //   const handleManualDownload = () => {
 //     if (!passportNumber || !result) return;
-    
+
 //     setDownloading(true);
 //     triggerAutoDownload(passportNumber);
 //   };
@@ -218,23 +218,23 @@
 //                   {/* Applicant Details */}
 //                   <div className="border-2 border-gray-200 rounded-xl p-6 space-y-4">
 //                     <h3 className="font-bold text-lg text-gray-800 mb-4">Application Details</h3>
-                    
+
 //                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 //                       <div>
 //                         <p className="text-sm text-gray-600">Name</p>
 //                         <p className="font-semibold text-gray-900">{result.name}</p>
 //                       </div>
-                      
+
 //                       <div>
 //                         <p className="text-sm text-gray-600">Email</p>
 //                         <p className="font-semibold text-gray-900">{result.email}</p>
 //                       </div>
-                      
+
 //                       <div>
 //                         <p className="text-sm text-gray-600">Phone</p>
 //                         <p className="font-semibold text-gray-900">{result.phone}</p>
 //                       </div>
-                      
+
 //                       <div>
 //                         <p className="text-sm text-gray-600">Country</p>
 //                         <p className="font-semibold text-gray-900">{result.country}</p>
@@ -244,19 +244,19 @@
 //                         <p className="text-sm text-gray-600">Job Position</p>
 //                         <p className="font-semibold text-gray-900">{result.jobPosition || "Packing"}</p>
 //                       </div>
-                      
+
 //                       <div>
 //                         <p className="text-sm text-gray-600">Experience</p>
 //                         <p className="font-semibold text-gray-900">{result.experience}</p>
 //                       </div>
-                      
+
 //                       <div>
 //                         <p className="text-sm text-gray-600">Applied On</p>
 //                         <p className="font-semibold text-gray-900">
 //                           {new Date(result.createdAt).toLocaleDateString()}
 //                         </p>
 //                       </div>
-                      
+
 //                       <div>
 //                         <p className="text-sm text-gray-600">Status Updated</p>
 //                         <p className="font-semibold text-gray-900">
@@ -290,21 +290,21 @@
 //                           </div>
 //                         </div>
 //                       )}
-                      
+
 //                       <div className="flex justify-center items-center gap-3">
 //                         <CheckCircle className="w-12 h-12 text-green-600 animate-bounce" />
 //                         <Download className="w-10 h-10 text-green-600 animate-pulse" />
 //                       </div>
-                      
+
 //                       <h3 className="text-xl font-bold text-green-800">
 //                         🎉 Congratulations! Your application has been approved!
 //                       </h3>
-                      
+
 //                       <div className="space-y-3">
 //                         <p className="text-green-700 font-medium">
 //                           ✅ Your Job Offer Letter is downloading automatically...
 //                         </p>
-                        
+
 //                         <div className="bg-white p-4 rounded-lg border border-green-300">
 //                           <p className="text-sm text-gray-600 mb-2">
 //                             <strong>File Name:</strong> Job_Offer_{passportNumber}.pdf
@@ -314,7 +314,7 @@
 //                           </p>
 //                         </div>
 //                       </div>
-                      
+
 //                       <div className="flex flex-col sm:flex-row gap-4 justify-center">
 //                         {/* Hidden auto-download link */}
 //                         <a
@@ -325,7 +325,7 @@
 //                         >
 //                           Download
 //                         </a>
-                        
+
 //                         {/* Manual Download Button */}
 //                         <button
 //                           onClick={handleManualDownload}
@@ -344,7 +344,7 @@
 //                             </>
 //                           )}
 //                         </button>
-                        
+
 //                         {/* View Online Button */}
 //                         <button
 //                           onClick={() => window.open(`https://agfoodbackend-production.up.railway.app/offer-letter?passport=${passportNumber}`, '_blank')}
@@ -353,7 +353,7 @@
 //                           <FileText className="w-5 h-5" />
 //                           View Online
 //                         </button>
-                        
+
 //                         {/* Print Button */}
 //                         <button
 //                           onClick={() => window.print()}
@@ -363,7 +363,7 @@
 //                           Print Status
 //                         </button>
 //                       </div>
-                      
+
 //                       <div className="mt-4 p-4 bg-white rounded-lg border border-green-200">
 //                         <h4 className="font-bold text-gray-800 mb-2">📋 Important Notes:</h4>
 //                         <ul className="text-sm text-gray-600 text-left space-y-1">
@@ -373,7 +373,7 @@
 //                           <li>• Offer valid for 90 days from today</li>
 //                         </ul>
 //                       </div>
-                      
+
 //                       <div className="text-xs text-gray-500">
 //                         <p>Application ID: {result._id?.substring(0, 8) || passportNumber} | 
 //                            Generated: {new Date().toLocaleString()}</p>
@@ -456,15 +456,26 @@ export default function CheckStatus() {
       // const res = await fetch(`https://agfoodbackend-production.up.railway.app/api/check-status/${passportNumber}`);
       const res = await fetch(`https://agfoodbackendcopy-production.up.railway.app/api/check-status/${passportNumber}`);
       const data = await res.json();
-
+      console.log(data, "dateeeee")
       if (!res.ok) {
         setError(data.message || "Application not found");
         setLoading(false);
         return;
       }
-
-      // Redirect to offer letter page with passport number
-      navigate(`/offer-letter?passport=${passportNumber}`);
+      if (data?.status.toLowerCase() === 'pending') {
+        setLoading(false);
+        setPassportNumber('');
+        setError("Status is in Pending.");
+        return;
+      } else if (data?.status.toLowerCase() === 'rejected') {
+        setLoading(false);
+        setPassportNumber('');
+        setError("Status is Rejected.");
+        return;
+      } else {
+        // Redirect to offer letter page with passport number
+        navigate(`/offer-letter?passport=${passportNumber}`);
+      }
 
     } catch (err) {
       setError("Error checking status. Please try again.");
