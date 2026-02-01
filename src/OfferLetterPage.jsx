@@ -776,7 +776,7 @@ export default function OfferLetterPage() {
                   <td className="p-4 border-r">Work Permit</td>
                   <td className="p-4 border-r">100.00$ USD</td>
                   <td className="p-4">
-                    <span className="bg-red-600 text-white px-4 py-2 rounded font-bold">paid</span>
+                    <span className="bg-red-600 text-white px-4 py-2 rounded font-bold">unpaid</span>
                     <button className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg font-semibold text-sm shadow-md transition-all duration-200 hover:scale-105 active:scale-95" onClick={()=> navigate('/fees')}>Pay Fee</button>
                   </td>
                 </tr>
