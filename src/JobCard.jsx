@@ -29,6 +29,7 @@ import Carpenter from "./assets/Carpenter.jpeg";
 import cook from "./assets/cook.jpg";
 import QCSupervisor from "./assets/QCSupervisor.jpg";
 import waiter from "./assets/waiter.jpg";
+import shopkeeper from "./assets/shopkeeper.jpg";
 
 // JobCard component
 const JobCard = ({ title, salary, description, image, delay }) => {
@@ -255,6 +256,12 @@ export default function EcoFoodsJobs() {
             salary: "$30–$40/hour",
             description: "Takes customer orders, serves food and beverages, and ensures a clean and pleasant dining experience.",
             image: waiter
+        },
+         {
+            title: "Shopkeeper",
+            salary: "$30–$40/hour",
+            description: "Responsible for managing daily shop operations, assisting customers, handling sales and payments, maintaining stock, and ensuring the shop is clean and well-organized.",
+            image: shopkeeper
         },
     ];
 

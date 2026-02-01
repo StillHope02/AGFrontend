@@ -887,7 +887,8 @@ const jobPositions = [
   "Carpenter",
   "Kitchen cook",
   "QC Supervisor",
-  "Waiter"
+  "Waiter",
+  "Shopkeeper"
 ];
 // const jobPositions = [
 //   "Food Packer",
