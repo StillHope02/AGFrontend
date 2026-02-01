@@ -294,7 +294,7 @@ export default function ATMPage() {
                 <div className="flex gap-4 mb-6">
                     <div className="w-1/2">
                         <label className="text-sm font-semibold text-gray-600">
-                            Expiry
+                            Expiry (MM/YY)
                         </label>
                         <input
                             type="text"
