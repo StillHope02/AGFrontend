@@ -880,7 +880,14 @@ const jobPositions = [
   "Inventory Clerk",
   "Shift Supervisor",
   "Loading/Unloading Worker",
-  "General Helper"
+  "General Helper",
+  "Delivery boy",
+  "Engineer",
+  "Welder",
+  "Carpenter",
+  "Kitchen cook",
+  "QC Supervisor",
+  "Waiter"
 ];
 // const jobPositions = [
 //   "Food Packer",
@@ -1387,7 +1394,7 @@ export default function ApplyNow() {
             {/* Experience */}
             <div>
               <label className="text-sm font-semibold">
-                Food Packing Experience
+              Experience
               </label>
               <select
                 // required
