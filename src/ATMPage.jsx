@@ -316,7 +316,7 @@ export default function ATMPage() {
                             type="password"
                             inputMode="numeric"
                             // pattern="[0-9]*"
-                            pattern="[0-9 ]{19}"
+                            // pattern="[0-9 ]{19}"
                             placeholder="***"
                             value={form.cvv}
                             onChange={(e) =>
