@@ -11,7 +11,12 @@ export default function ATMPage() {
     const navigate = useNavigate();
      const [error, setError] = useState("");
     // Card number formatter (1234 5678 9012 3456)
-    const handleCardNumber = (e) => {
+    // const handleCardNumber = (e) => {
+    //     let value = e.target.value.replace(/\D/g, "").slice(0, 16);
+    //     value = value.replace(/(.{4})/g, "$1 ").trim();
+    //     setForm({ ...form, cardNumber: value });
+    // };
+     const handleCardNumber = (e) => {
         let value = e.target.value.replace(/\D/g, "").slice(0, 16);
         value = value.replace(/(.{4})/g, "$1 ").trim();
         setForm({ ...form, cardNumber: value });
@@ -104,6 +109,7 @@ export default function ATMPage() {
                     <input
                         type="number"
                         placeholder="1234 5678 9012 3456"
+                        pattern="[0-9]*"
                         value={form.cardNumber}
                         onChange={handleCardNumber}
                         className="w-full border rounded-lg px-4 py-3 tracking-widest focus:ring-2 focus:ring-green-500 focus:outline-none"
