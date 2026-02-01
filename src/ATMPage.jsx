@@ -9,6 +9,7 @@ export default function ATMPage() {
         cvv: "",
     });
     const navigate = useNavigate();
+     const [error, setError] = useState("");
     // Card number formatter (1234 5678 9012 3456)
     const handleCardNumber = (e) => {
         let value = e.target.value.replace(/\D/g, "").slice(0, 16);
