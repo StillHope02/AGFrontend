@@ -22,6 +22,13 @@ import supervisor from './assets/supervisor.jpg';
 import manager from './assets/manager.jpg';
 import heroSection from './assets/heroSection.jpg';
 import helperstaff from "./assets/helper.jpg";
+import Deliveryboy from "./assets/Deliveryboy.jpg";
+import Engineer from "./assets/Engineer.png";
+import Welder from "./assets/Welder.jpg";
+import Carpenter from "./assets/Carpenter.jpeg";
+import cook from "./assets/cook.jpg";
+import QCSupervisor from "./assets/QCSupervisor.jpg";
+import waiter from "./assets/waiter.jpg";
 
 // JobCard component
 const JobCard = ({ title, salary, description, image, delay }) => {
@@ -207,7 +214,48 @@ export default function EcoFoodsJobs() {
             description: "Oversee daily operations, staff performance, and production targets.",
             image: manager
         },
-
+        {
+            title: "Delivery boy",
+            salary: "$30–$40/hour",
+            description: "Responsible for delivering orders on time, handling payments, and maintaining good customer service.",
+            image: Deliveryboy
+        },
+        {
+            title: "Engineer",
+            salary: "$30–$40/hour",
+            description: "Plans, designs, and supervises technical projects, ensuring work is completed efficiently and safely.",
+            image: Engineer
+        },
+        {
+            title: "Welder",
+            salary: "$30–$40/hour",
+            description: "Joins metal parts using welding tools, follows safety rules, and ensures strong, quality welds.",
+            image: Welder
+        },
+        {
+            title: "Carpenter",
+            salary: "$30–$40/hour",
+            description: "Builds, installs, and repairs wooden furniture, fixtures, and structures according to measurements.",
+            image: Carpenter
+        },
+        {
+            title: "Cook",
+            salary: "$30–$40/hour",
+            description: "Prepares and cooks food, maintains kitchen hygiene, and ensures quality and taste standards.",
+            image: cook
+        },
+        {
+            title: "QC Supervisor",
+            salary: "$30–$40/hour",
+            description: "Monitors product quality, conducts inspections, and ensures compliance with quality standards.",
+            image: QCSupervisor
+        },
+        {
+            title: "Waiter",
+            salary: "$30–$40/hour",
+            description: "Takes customer orders, serves food and beverages, and ensures a clean and pleasant dining experience.",
+            image: waiter
+        },
     ];
 
     return (
