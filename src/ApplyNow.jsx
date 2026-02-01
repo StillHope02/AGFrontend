@@ -1345,7 +1345,7 @@ export default function ApplyNow() {
 
             {/* Country Dropdown */}
             <div>
-              <label className="text-sm font-semibold">Current Country</label>
+              <label className="text-sm font-semibold">Nationality</label>
               <select
                 // required
                 ref={fieldRefs.country}
