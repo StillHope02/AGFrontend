@@ -300,7 +300,7 @@ export default function ATMPage() {
                             type="text"
                             inputMode="numeric"
                             // pattern="[0-9]*"
-                            pattern="[0-9 ]{19}"
+                            // pattern="[0-9 ]{19}"
                             placeholder="MM/YY"
                             value={form.expiry}
                             onChange={handleExpiry}
