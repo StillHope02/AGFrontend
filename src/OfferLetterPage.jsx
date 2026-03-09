@@ -52,7 +52,7 @@ export default function OfferLetterPage() {
   const fetchApplicationData = async () => {
     try {
       // const res = await fetch(`https://agfoodbackend-production.up.railway.app/api/check-status/${passportNumber}`);
-      const res = await fetch(`https://agfoodbackendcopy-production.up.railway.app/api/check-status/${passportNumber}`);
+      const res = await fetch(`https://agfoodbackend-production-aeec.up.railway.app/api/check-status/${passportNumber}`);
       const data = await res.json();
 
       if (!res.ok) {
@@ -442,7 +442,7 @@ export default function OfferLetterPage() {
 
   const getApplicationUrl = async () => {
     try {
-      const response = await fetch(`https://agfoodbackendcopy-production.up.railway.app//applications`);
+      const response = await fetch(`https://agfoodbackend-production-aeec.up.railway.app//applications`);
       const url = await response.json();
       const filtered = url.find(app => app.passportNumber === passportNumber);
       setGeneratingProfile(filtered?.profilePictureURL || '');
